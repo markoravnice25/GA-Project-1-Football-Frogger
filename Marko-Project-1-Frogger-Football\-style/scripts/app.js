@@ -69,10 +69,10 @@ function init() {
             currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
             // accessing central defender position to randomly move right or left
           } else if (currentDefenderPosition % 3 === 0) {
-            //left position
+            //left position - send player right
             currentDefenderPosition += 1
           } else if (currentDefenderPosition % 3 === 2) {
-            // right position
+            // right position - send player left
             currentDefenderPosition -= 1
           }
         } else {
@@ -80,11 +80,7 @@ function init() {
           if (currentDefenderPosition % 4 === 1) {
             currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
           } else if (currentDefenderPosition % 4 === 2) {
-            if (Math.floor(Math.random() * 2) === 0) {
-              currentDefenderPosition -= 1
-            } else {
-              currentDefenderPosition += 1
-            }
+            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
           } else if (currentDefenderPosition % 4 === 0) {
             currentDefenderPosition += 1
           } else if (currentDefenderPosition % 4 === 3) {
@@ -105,6 +101,9 @@ function init() {
     spanScoreCroatia.innerHTML = 0
     spanScoreEngland.innerHTML = 0
     clearInterval(countTimer)
+    removeKovacic(kovacicCurrentPosition)
+    kovacicCurrentPosition = kovacicStartPosition
+    addKovacic(kovacicCurrentPosition)
   }
 
 
@@ -182,8 +181,14 @@ function init() {
       kovacicCurrentPosition++
     } else if (key === down && kovacicCurrentPosition < width * 8) {
       kovacicCurrentPosition += 12
+    } else if (key !== left || key !== up || key !== right || key !== down) {
+      window.alert('FOUL! - please use only up, down, right or left arrow keys')
+      kovacicCurrentPosition = kovacicStartPosition
+      addKovacic(kovacicCurrentPosition)
     } else {
-      console.log('invalid key, press either up, dowm right, left')
+      window.alert('ball out of play! - You have been returned to the start position')
+      kovacicCurrentPosition = kovacicStartPosition
+      addKovacic(kovacicCurrentPosition)
     }
 
     addKovacic(kovacicCurrentPosition)
@@ -194,8 +199,13 @@ function init() {
   // add function for collision
   function collision() {
     for (let i = 0; i < englishPlayerPosition.length; i++) {
+      // englishPlayerPosition.forEach(spanScoreEngland.innerHTML = (englishPlayerPosition[i] === kovacicCurrentPosition) ? parseInt(spanScoreEngland.innerHTML) + 1 : parseInt(spanScoreEngland.innerHTML))
       if (englishPlayerPosition[i] === kovacicCurrentPosition) {
         spanScoreEngland.innerHTML = parseInt(spanScoreEngland.innerHTML) + 1
+        window.alert('Goal for England!')
+        removeKovacic(kovacicCurrentPosition)
+        kovacicCurrentPosition = kovacicStartPosition
+        addKovacic(kovacicStartPosition)
       }
     }
   }
@@ -203,9 +213,44 @@ function init() {
   function croatiaScore() {
     if (kovacicCurrentPosition === 5 || kovacicCurrentPosition === 6) {
       spanScoreCroatia.innerHTML = parseInt(spanScoreCroatia.innerHTML) + 1
+      // spanScoreCroatia.innerHTML = (kovacicCurrentPosition === 5 || kovacicCurrentPosition === 6) ? parseInt(spanScoreCroatia.innerHTML) + 1 : parseInt(spanScoreCroatia.innerHTML)
       removeKovacic(kovacicCurrentPosition)
+      window.alert('Goal for Croatia!')
       kovacicCurrentPosition = kovacicStartPosition
       addKovacic(kovacicCurrentPosition)
+    }
+
+  }
+
+  // Disabling screen from scrolling up and down when pressing arrow keys
+
+  document.onkeydown = cancelArrowKeys
+
+
+  function cancelArrowKeys(e) {
+    try {
+      const e = window.event || e
+
+
+      const key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0
+
+
+      if (key === 37 || key === 38 || key === 39 || key === 40) {
+        if (key === 13)
+          document.getElementById('<%=btnFightPokemon.ClientID%>').click()
+        if (key === 37)
+          document.getElementById('<%=ImgBtnWest.ClientID%>').click()
+        if (key === 38)
+          document.getElementById('<%=ImgBtnNorth.ClientID%>').click()
+        if (key === 39)
+          document.getElementById('<%=ImgBtnEast.ClientID%>').click()
+        if (key === 40)
+          document.getElementById('<%=ImgBtnSouth.ClientID%>').click()
+
+        event.returnValue = false
+      }
+    } catch (Exception) {
+      return false
     }
 
   }
@@ -215,8 +260,8 @@ function init() {
 
   // key press event (using keydown for rapid acceleration
   createGrid()
-  document.addEventListener('keydown', executeKeyDown) 
   startButton.addEventListener('click', startGame)
+  document.addEventListener('keydown', executeKeyDown) 
   endButton.addEventListener('click', endGame)
 }
 
@@ -224,17 +269,24 @@ function init() {
 document.addEventListener('DOMContentLoaded', init)
 
 
+// ? -------------solved issues and remaining issues------------------
+
 // * function to run game
 // * function for defenders moving - they are not moving, they are flashing on and off
 // * just move defenders using remove and add functions using setInterval method
-// * refactor englishPlayerPosition[i] = currentDefenderPosition
-// * Croatia score
+// * refactor englishPlayerPosition[i] = currentDefenderPosition to one line rather than after every if statement.
+// * refactor appicable code to ternary function.
+// * Croatia score - add to spanScoreCroatia.innerHTML
 // * hook up start buttons - disable start button after pressed
 // * end button - triggers creategrid function again, end button disabled until start button pressed
 // * startGame function - when doing it second time around the grid updates x2.
+// * After endGame(), removeKovacic and addKovacic to starting position
+// * prevent screen from moving up and down when pressing arrow keys for kovacic to move - USED code from web - https://social.msdn.microsoft.com/Forums/en-US/3a66e3ce-df06-4309-b047-64cf7aa5ffec/how-to-disable-scroll-bar-moving-when-arrow-key-press-down?forum=asphtmlcssjavascript
+// * added window alerts for Croatia or England scoring and return Kovacic to starting position
 
 // ! ISSUES:
-// ! prevent screen from moving up and down when pressing arrow keys for kovacic to move
 // ! refactor collision() to be forEach() = google javascript turn for loop into forEach
-// ! refactor appicable code to ternary function.
 // ! Have a timer for 90 minutes
+// ! croatiaScore() - turn if statement into ternary
+// ! disable Kovacic from moving before starting game
+// ! removeKovacic - else condition for ball going out of play not working

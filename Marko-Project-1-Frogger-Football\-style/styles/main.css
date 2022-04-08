@@ -57,7 +57,7 @@ margin: 0;
   background-size: cover;
 }
 
-/* #grid div.goal-left {
+#grid div.goal-left {
   background-image: url(../images/goal-left.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,7 +67,7 @@ margin: 0;
   background-image: url(../images/goal-right.png);
   background-repeat: no-repeat;
   background-size: cover;
-} */
+}
 
 /* div {
   background-color: greenyellow;
