@@ -3,6 +3,11 @@ function init() {
   // ? elements
   //grid container
   const grid = document.querySelector('#grid')
+  const spanScoreCroatia = document.querySelector('#croatia-score')
+  const spanScoreEngland = document.querySelector('#england-score')
+  const startButton = document.querySelector('#start')
+  const endButton = document.querySelector('#end')
+
 
   // GRID 12x9
   const width = 12
@@ -10,7 +15,7 @@ function init() {
   const cellCount = height * width
   const cells = [] //array which holds all cells
   let countTimer
-  let time = 500
+  const time = 500
 
   // ? Create Grid
 
@@ -21,7 +26,6 @@ function init() {
     for (let i = 0; i < cellCount; i++) {
       // create cell
       const cell = document.createElement('div')
-
       cell.innerText = i
       cell.id = i
       grid.appendChild(cell)
@@ -41,7 +45,12 @@ function init() {
     addEnglishPlayer(englishPlayerPosition[10])
     addGoalLeft(goalLeftStartingPosition)
     addGoalRight(goalRightStartingPosition)
+  }
 
+  function startGame() {
+    startButton.disabled = true
+    endButton.disabled = false
+    clearInterval(countTimer)
     countTimer = setInterval(() => {
       // console.log('setInterval check')
       for (let i = 0; i < englishPlayerPosition.length; i++) {
@@ -52,62 +61,52 @@ function init() {
         if (i === 0) {
           // accessing goalkeeper
           // console.log(`moving goalkeeper. currentDefenderPosition: ${currentDefenderPosition}`)
-          currentDefenderPosition = currentDefenderPosition === 17 ? 18 : 17
-          englishPlayerPosition[i] = currentDefenderPosition
+          currentDefenderPosition = (currentDefenderPosition === 17 ? 18 : 17)
         } else if (i > 0 && i < 5) {
           //accessing defensive line
-          console.log('defensive line active')
+          // console.log('defensive line active')
           if (currentDefenderPosition % 3 === 1) {
+            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
             // accessing central defender position to randomly move right or left
-            if (Math.floor(Math.random() * 2) === 0) {
-              currentDefenderPosition -= 1
-              englishPlayerPosition[i] = currentDefenderPosition
-            } else {
-              currentDefenderPosition += 1
-              englishPlayerPosition[i] = currentDefenderPosition              
-            }
           } else if (currentDefenderPosition % 3 === 0) {
             //left position
             currentDefenderPosition += 1
-            englishPlayerPosition[i] = currentDefenderPosition
           } else if (currentDefenderPosition % 3 === 2) {
             // right position
             currentDefenderPosition -= 1
-            englishPlayerPosition[i] = currentDefenderPosition
           }
         } else {
           // accessing mids and forwards who are both in a line of 3.
           if (currentDefenderPosition % 4 === 1) {
+            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
+          } else if (currentDefenderPosition % 4 === 2) {
             if (Math.floor(Math.random() * 2) === 0) {
               currentDefenderPosition -= 1
-              englishPlayerPosition[i] = currentDefenderPosition
-            } else {
-              currentDefenderPosition +=1
-              englishPlayerPosition[i] = currentDefenderPosition
-            }
-          }
-          else if (currentDefenderPosition % 4 === 2) {
-            if (Math.floor(Math.random() * 2) === 0) {
-              currentDefenderPosition -= 1
-              englishPlayerPosition[i] = currentDefenderPosition
             } else {
               currentDefenderPosition += 1
-              englishPlayerPosition[i] = currentDefenderPosition
             }
           } else if (currentDefenderPosition % 4 === 0) {
             currentDefenderPosition += 1
-            englishPlayerPosition[i] = currentDefenderPosition
           } else if (currentDefenderPosition % 4 === 3) {
             currentDefenderPosition -= 1
-            englishPlayerPosition[i] = currentDefenderPosition
           }
-          
         }
-
+        englishPlayerPosition[i] = currentDefenderPosition              
         addEnglishPlayer(currentDefenderPosition)
       }
+      collision()
     }, time)
   }
+
+  function endGame () {
+    endButton.disabled = true
+    startButton.disabled = false
+    window.alert(`the final score, Croatia: ${spanScoreCroatia.innerHTML} England: ${spanScoreEngland.innerHTML}`)
+    spanScoreCroatia.innerHTML = 0
+    spanScoreEngland.innerHTML = 0
+    clearInterval(countTimer)
+  }
+
 
   // characters
   const kovacicClass = 'kovacic'
@@ -160,6 +159,8 @@ function init() {
 
   // ? Execution
 
+  // 
+
   // executed on 'keydown'
   // when a key is pressed Kovacic will move in that direction
   //disable leaving the grid
@@ -186,27 +187,54 @@ function init() {
     }
 
     addKovacic(kovacicCurrentPosition)
+    collision()
+    croatiaScore()
   }
 
+  // add function for collision
+  function collision() {
+    for (let i = 0; i < englishPlayerPosition.length; i++) {
+      if (englishPlayerPosition[i] === kovacicCurrentPosition) {
+        spanScoreEngland.innerHTML = parseInt(spanScoreEngland.innerHTML) + 1
+      }
+    }
+  }
+
+  function croatiaScore() {
+    if (kovacicCurrentPosition === 5 || kovacicCurrentPosition === 6) {
+      spanScoreCroatia.innerHTML = parseInt(spanScoreCroatia.innerHTML) + 1
+      removeKovacic(kovacicCurrentPosition)
+      kovacicCurrentPosition = kovacicStartPosition
+      addKovacic(kovacicCurrentPosition)
+    }
+
+  }
 
   // ? events
+  
+
   // key press event (using keydown for rapid acceleration
-  document.addEventListener('keydown', executeKeyDown)
   createGrid()
-
+  document.addEventListener('keydown', executeKeyDown) 
+  startButton.addEventListener('click', startGame)
+  endButton.addEventListener('click', endGame)
 }
-
-
-
-
 
 
 document.addEventListener('DOMContentLoaded', init)
 
 
-// function to run game {
-// function for defenders moving - they are not moving, they are flashing on and off
-// every second square, so you have a defender in every cell but they give the appeareance
-// of moving
-// just move defenders using remove and add functions using setInterval method
-// }
+// * function to run game
+// * function for defenders moving - they are not moving, they are flashing on and off
+// * just move defenders using remove and add functions using setInterval method
+// * refactor englishPlayerPosition[i] = currentDefenderPosition
+// * Croatia score
+// * hook up start buttons - disable start button after pressed
+// * end button - triggers creategrid function again, end button disabled until start button pressed
+// * startGame function - when doing it second time around the grid updates x2.
+
+// ! ISSUES:
+// ! prevent screen from moving up and down when pressing arrow keys for kovacic to move
+// ! refactor collision() to be forEach() = google javascript turn for loop into forEach
+// ! refactor appicable code to ternary function.
+// ! Have a timer for 90 minutes
