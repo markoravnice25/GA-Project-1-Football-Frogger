@@ -48,6 +48,7 @@ function init() {
   }
 
   function startGame() {
+    document.addEventListener('keydown', executeKeyDown) 
     startButton.disabled = true
     endButton.disabled = false
     clearInterval(countTimer)
@@ -95,6 +96,7 @@ function init() {
   }
 
   function endGame () {
+    document.removeEventListener('keydown', executeKeyDown)
     endButton.disabled = true
     startButton.disabled = false
     window.alert(`the final score, Croatia: ${spanScoreCroatia.innerHTML} England: ${spanScoreEngland.innerHTML}`)
@@ -181,7 +183,7 @@ function init() {
       kovacicCurrentPosition++
     } else if (key === down && kovacicCurrentPosition < width * 8) {
       kovacicCurrentPosition += 12
-    } else if (key !== left || key !== up || key !== right || key !== down) {
+    } else if (key !== left && key !== up && key !== right && key !== down) {
       window.alert('FOUL! - please use only up, down, right or left arrow keys')
       kovacicCurrentPosition = kovacicStartPosition
       addKovacic(kovacicCurrentPosition)
@@ -223,6 +225,7 @@ function init() {
   }
 
   // Disabling screen from scrolling up and down when pressing arrow keys
+  // used this code from a google search = https://social.msdn.microsoft.com/Forums/en-US/3a66e3ce-df06-4309-b047-64cf7aa5ffec/how-to-disable-scroll-bar-moving-when-arrow-key-press-down?forum=asphtmlcssjavascript
 
   document.onkeydown = cancelArrowKeys
 
@@ -261,7 +264,6 @@ function init() {
   // key press event (using keydown for rapid acceleration
   createGrid()
   startButton.addEventListener('click', startGame)
-  document.addEventListener('keydown', executeKeyDown) 
   endButton.addEventListener('click', endGame)
 }
 
@@ -272,21 +274,20 @@ document.addEventListener('DOMContentLoaded', init)
 // ? -------------solved issues and remaining issues------------------
 
 // * function to run game
-// * function for defenders moving - they are not moving, they are flashing on and off
 // * just move defenders using remove and add functions using setInterval method
 // * refactor englishPlayerPosition[i] = currentDefenderPosition to one line rather than after every if statement.
 // * refactor appicable code to ternary function.
 // * Croatia score - add to spanScoreCroatia.innerHTML
 // * hook up start buttons - disable start button after pressed
-// * end button - triggers creategrid function again, end button disabled until start button pressed
-// * startGame function - when doing it second time around the grid updates x2.
+// * end button function to end game and allow for restart using start button - end button disabled until start button pressed
+// * startGame function - (fixed by disabling start button after until end Game button is pressed) when doing it second time around the grid updates x2.
 // * After endGame(), removeKovacic and addKovacic to starting position
 // * prevent screen from moving up and down when pressing arrow keys for kovacic to move - USED code from web - https://social.msdn.microsoft.com/Forums/en-US/3a66e3ce-df06-4309-b047-64cf7aa5ffec/how-to-disable-scroll-bar-moving-when-arrow-key-press-down?forum=asphtmlcssjavascript
 // * added window alerts for Croatia or England scoring and return Kovacic to starting position
+// * removeKovacic - else condition for ball going out of play not working (fixed by changing else if statement from || to &&)
+// * disable Kovacic from moving before starting game
 
 // ! ISSUES:
 // ! refactor collision() to be forEach() = google javascript turn for loop into forEach
 // ! Have a timer for 90 minutes
 // ! croatiaScore() - turn if statement into ternary
-// ! disable Kovacic from moving before starting game
-// ! removeKovacic - else condition for ball going out of play not working
