@@ -7,6 +7,7 @@ function init() {
   const spanScoreEngland = document.querySelector('#england-score')
   const startButton = document.querySelector('#start')
   const endButton = document.querySelector('#end')
+  const timer = document.querySelector('#timer')
 
 
   // GRID 12x9
@@ -15,6 +16,7 @@ function init() {
   const cellCount = height * width
   const cells = [] //array which holds all cells
   let countTimer
+  let liveTimeTimer
   const time = 500
 
   // ? Create Grid
@@ -47,10 +49,38 @@ function init() {
     addGoalRight(goalRightStartingPosition)
   }
 
+  function liveTime() {
+    // 1. extract innerHTML and turn it into numbers
+    let currentTime = timer.innerHTML
+    // 2. separate the two numbers
+    const currentTimeArray = currentTime.split(':')
+    // create variables for each number
+    let mili = parseInt(currentTimeArray[1])
+    let sec = parseInt(currentTimeArray[0])
+    // 3. increment the right side (milliseconds) by 10 every 0.1 second
+    if (mili < 50) {
+      mili += 10
+    } 
+    // 4. increment left side (seconds) by 1 every second.
+    else {
+      mili = 0
+      sec += 1
+    }
+    // 5. update innerHTML as a string
+    timer.innerHTML = `${sec.toString()}:${mili.toString()}`
+    // 6. end at 90
+    if (sec >= 5) {
+      endGame()
+    }
+  }
+
   function startGame() {
     document.addEventListener('keydown', executeKeyDown) 
     startButton.disabled = true
     endButton.disabled = false
+
+    liveTimeTimer = setInterval(liveTime, 100)
+
     clearInterval(countTimer)
     countTimer = setInterval(() => {
       // console.log('setInterval check')
@@ -103,9 +133,11 @@ function init() {
     spanScoreCroatia.innerHTML = 0
     spanScoreEngland.innerHTML = 0
     clearInterval(countTimer)
+    clearInterval(liveTimeTimer)
     removeKovacic(kovacicCurrentPosition)
     kovacicCurrentPosition = kovacicStartPosition
     addKovacic(kovacicCurrentPosition)
+    timer.innerHTML = '00:00'
   }
 
 
@@ -201,7 +233,6 @@ function init() {
   // add function for collision
   function collision() {
     for (let i = 0; i < englishPlayerPosition.length; i++) {
-      // englishPlayerPosition.forEach(spanScoreEngland.innerHTML = (englishPlayerPosition[i] === kovacicCurrentPosition) ? parseInt(spanScoreEngland.innerHTML) + 1 : parseInt(spanScoreEngland.innerHTML))
       if (englishPlayerPosition[i] === kovacicCurrentPosition) {
         spanScoreEngland.innerHTML = parseInt(spanScoreEngland.innerHTML) + 1
         window.alert('Goal for England!')
@@ -215,13 +246,11 @@ function init() {
   function croatiaScore() {
     if (kovacicCurrentPosition === 5 || kovacicCurrentPosition === 6) {
       spanScoreCroatia.innerHTML = parseInt(spanScoreCroatia.innerHTML) + 1
-      // spanScoreCroatia.innerHTML = (kovacicCurrentPosition === 5 || kovacicCurrentPosition === 6) ? parseInt(spanScoreCroatia.innerHTML) + 1 : parseInt(spanScoreCroatia.innerHTML)
       removeKovacic(kovacicCurrentPosition)
       window.alert('Goal for Croatia!')
       kovacicCurrentPosition = kovacicStartPosition
       addKovacic(kovacicCurrentPosition)
     }
-
   }
 
   // Disabling screen from scrolling up and down when pressing arrow keys
@@ -273,6 +302,8 @@ document.addEventListener('DOMContentLoaded', init)
 
 // ? -------------solved issues and remaining issues------------------
 
+// * SOLVED
+
 // * function to run game
 // * just move defenders using remove and add functions using setInterval method
 // * refactor englishPlayerPosition[i] = currentDefenderPosition to one line rather than after every if statement.
@@ -286,8 +317,17 @@ document.addEventListener('DOMContentLoaded', init)
 // * added window alerts for Croatia or England scoring and return Kovacic to starting position
 // * removeKovacic - else condition for ball going out of play not working (fixed by changing else if statement from || to &&)
 // * disable Kovacic from moving before starting game
+// * Create an internal timer for 90 minutes
 
-// ! ISSUES:
-// ! refactor collision() to be forEach() = google javascript turn for loop into forEach
-// ! Have a timer for 90 minutes
-// ! croatiaScore() - turn if statement into ternary
+
+// ? PENDING
+
+// ? croatiaScore() - turn if statement into ternary - NO NEED for it as if statement has other conditions attached
+// ? refactor collision() to be forEach() = google javascript turn for loop into forEach - Doesn't seem to work, can't figure out why yet.
+
+// ! REMAINING ISSUES:
+
+// ! Create a displayed timer
+// ! Offer 3 levels of play - where setInterval is 700, 500, 300 for amateur, professional, world class respectively.
+// ! start styling the CSS
+
