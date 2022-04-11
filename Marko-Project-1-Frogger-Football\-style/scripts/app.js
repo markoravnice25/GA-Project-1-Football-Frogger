@@ -1,7 +1,15 @@
+//TODO: (1) set up initialization of page
+//* create initialization function upon browser window loading
+//* call the function at the bottom of the Javascript
+
 function init() {
+
+  //TODO: (2) Create variables/elements
   
-  // ? elements
-  //grid container
+  //TODO: (2a) Global elements
+  //* Create global variables to be used in functions
+  //* access elements from INDEX.html
+
   const grid = document.querySelector('#grid')
   const spanScoreCroatia = document.querySelector('#croatia-score')
   const spanScoreEngland = document.querySelector('#england-score')
@@ -9,30 +17,66 @@ function init() {
   const endButton = document.querySelector('#end')
   const timer = document.querySelector('#timer')
 
+  //TODO: (2b) Create time variables for keeping track of game time 
 
-  // GRID 12x9
-  const width = 12
-  const height = 9
-  const cellCount = height * width
-  const cells = [] //array which holds all cells
   let countTimer
   let liveTimeTimer
   const time = 500
 
-  // ? Create Grid
+  //TODO: (3) Create characters for GRID
+  //* Kovacic: (a) create KovacicClass variable to be used in CSS; (b) KovacicStartPosition for grid Display; (c) let kovacicCurrentPosition (will be moving in executeKeyDown function) = kovacicStartPosition
+  //* English players: (a) create englishPlayerClass to be used in CSS; (b) create englishPlayerPosition[] array; (c) assign 11 array positions
+
+  const kovacicClass = 'kovacic'
+  const kovacicStartPosition = 101
+  let kovacicCurrentPosition = kovacicStartPosition
+
+  const englishPlayersClass = 'english-players'
+  const englishPlayerPosition = []
+  englishPlayerPosition[0] = 17
+  englishPlayerPosition[1] = 37
+  englishPlayerPosition[2] = 40
+  englishPlayerPosition[3] = 43
+  englishPlayerPosition[4] = 46
+  englishPlayerPosition[5] = 62
+  englishPlayerPosition[6] = 66
+  englishPlayerPosition[7] = 70
+  englishPlayerPosition[8] = 85
+  englishPlayerPosition[9] = 89
+  englishPlayerPosition[10] = 93
+
+  const goalClassLeft = 'goal-left'
+  const goalLeftStartingPosition = 5
+  const goalClassRight = 'goal-right'
+  const goalRightStartingPosition = 6
+
+  //TODO: (4) Create grid variables/elements
+  //* create GRID variables to create Grid and CELLS.
+  
+  const width = 12
+  const height = 9
+  const cellCount = height * width
+  const cells = [] //array which holds all cells
+
+  //TODO: (5) Create Grid
+  //* function which is called as soon as browser window is loaded.
 
   function createGrid () {
     // create all grid cells
     // add cells to array
     // append cells to grid
+    endButton.disabled = true
+
     for (let i = 0; i < cellCount; i++) {
       // create cell
       const cell = document.createElement('div')
-      cell.innerText = i
-      cell.id = i
+      // cell.innerText = i
+      // cell.id = i
       grid.appendChild(cell)
       cells.push(cell)
     }
+
+    // add characters to their starting positions Kovacic, English players, Goal.
     addKovacic(kovacicStartPosition)
     addEnglishPlayer(englishPlayerPosition[0])
     addEnglishPlayer(englishPlayerPosition[1])
@@ -49,37 +93,43 @@ function init() {
     addGoalRight(goalRightStartingPosition)
   }
 
-  function liveTime() {
-    // 1. extract innerHTML and turn it into numbers
-    let currentTime = timer.innerHTML
-    // 2. separate the two numbers
-    const currentTimeArray = currentTime.split(':')
-    // create variables for each number
-    let mili = parseInt(currentTimeArray[1])
-    let sec = parseInt(currentTimeArray[0])
-    // 3. increment the right side (milliseconds) by 10 every 0.1 second
-    if (mili < 50) {
-      mili += 10
-    } 
-    // 4. increment left side (seconds) by 1 every second.
-    else {
-      mili = 0
-      sec += 1
-    }
-    // 5. update innerHTML as a string
-    timer.innerHTML = `${sec.toString()}:${mili.toString()}`
-    // 6. end at 90
-    if (sec >= 5) {
-      endGame()
-    }
+  //TODO: ------------------- (6) GAME EXECUTIONS: ---------------------
+  
+  //TODO: (6a) Adding CHARACTERS to STARTING GRID
+  //* Functions for adding/removing previously created classes for characters to give 'moving' appearance.
+
+  function addKovacic(position) {
+    cells[position].classList.add(kovacicClass)
   }
+
+  function removeKovacic(position) {
+    cells[position].classList.remove(kovacicClass)
+  }
+
+  function addEnglishPlayer(position) {
+    cells[position].classList.add(englishPlayersClass)
+  }
+
+  function removeEnglishPlayer(position) {
+    cells[position].classList.remove(englishPlayersClass)
+  }
+
+  function addGoalLeft(position) {
+    cells[position].classList.add(goalClassLeft)
+  }
+
+  function addGoalRight(position) {
+    cells[position].classList.add(goalClassRight)
+  }
+
+  //TODO (6b) STARTING the game
 
   function startGame() {
     document.addEventListener('keydown', executeKeyDown) 
     startButton.disabled = true
     endButton.disabled = false
 
-    liveTimeTimer = setInterval(liveTime, 100)
+    liveTimeTimer = setInterval(liveTime, 10)
 
     clearInterval(countTimer)
     countTimer = setInterval(() => {
@@ -121,9 +171,11 @@ function init() {
         englishPlayerPosition[i] = currentDefenderPosition              
         addEnglishPlayer(currentDefenderPosition)
       }
-      collision()
+      collisionEnglandScore()
     }, time)
   }
+
+  //TODO: (6c) ENDING the game
 
   function endGame () {
     document.removeEventListener('keydown', executeKeyDown)
@@ -140,63 +192,11 @@ function init() {
     timer.innerHTML = '00:00'
   }
 
-
-  // characters
-  const kovacicClass = 'kovacic'
-  const kovacicStartPosition = 101
-  let kovacicCurrentPosition = kovacicStartPosition
-
-  const englishPlayersClass = 'english-players'
-  const englishPlayerPosition = []
-  englishPlayerPosition[0] = 17
-  englishPlayerPosition[1] = 37
-  englishPlayerPosition[2] = 40
-  englishPlayerPosition[3] = 43
-  englishPlayerPosition[4] = 46
-  englishPlayerPosition[5] = 62
-  englishPlayerPosition[6] = 66
-  englishPlayerPosition[7] = 70
-  englishPlayerPosition[8] = 85
-  englishPlayerPosition[9] = 89
-  englishPlayerPosition[10] = 93
-
-  const goalClassLeft = 'goal-left'
-  const goalLeftStartingPosition = 5
-  const goalClassRight = 'goal-right'
-  const goalRightStartingPosition = 6
-
-  // Add and remove character functions
-  function addKovacic(position) {
-    cells[position].classList.add(kovacicClass)
-  }
-
-  function removeKovacic(position) {
-    cells[position].classList.remove(kovacicClass)
-  }
-
-  function addEnglishPlayer(position) {
-    cells[position].classList.add(englishPlayersClass)
-  }
-
-  function removeEnglishPlayer(position) {
-    cells[position].classList.remove(englishPlayersClass)
-  }
-
-  function addGoalLeft(position) {
-    cells[position].classList.add(goalClassLeft)
-  }
-
-  function addGoalRight(position) {
-    cells[position].classList.add(goalClassRight)
-  }
-
-  // ? Execution
-
-  // 
-
+  //TODO: (6d) Kovacic MOVEMENT using arrow keys
   // executed on 'keydown'
   // when a key is pressed Kovacic will move in that direction
   //disable leaving the grid
+
   function executeKeyDown(event) {
     const key = event.keyCode
     console.log(key)
@@ -226,12 +226,14 @@ function init() {
     }
 
     addKovacic(kovacicCurrentPosition)
-    collision()
+    collisionEnglandScore()
     croatiaScore()
   }
 
-  // add function for collision
-  function collision() {
+  //TODO: (6e) COLLISION = England scores!
+  // add function for collisionEnglandScore
+
+  function collisionEnglandScore() {
     for (let i = 0; i < englishPlayerPosition.length; i++) {
       if (englishPlayerPosition[i] === kovacicCurrentPosition) {
         spanScoreEngland.innerHTML = parseInt(spanScoreEngland.innerHTML) + 1
@@ -243,6 +245,8 @@ function init() {
     }
   }
 
+  //TODO: (6f) Kovacic reaches position 5 or 6 = Croatia scores!
+
   function croatiaScore() {
     if (kovacicCurrentPosition === 5 || kovacicCurrentPosition === 6) {
       spanScoreCroatia.innerHTML = parseInt(spanScoreCroatia.innerHTML) + 1
@@ -253,6 +257,34 @@ function init() {
     }
   }
 
+  //TODO: (6g) Timer function
+
+  function liveTime() {
+    // 1. extract innerHTML
+    let currentTime = timer.innerHTML
+    // 2. separate the two strings
+    const currentTimeArray = currentTime.split(':')
+    // 3. create variables as numbers for the two strings
+    let mili = parseInt(currentTimeArray[1])
+    let sec = parseInt(currentTimeArray[0])
+    // 4. increment the right side (milliseconds) by 1 every 0.01 second
+    if (mili < 59) {
+      mili += 1
+    } 
+    // 4. increment left side (seconds) by 1 every second.
+    else {
+      mili = 0
+      sec += 1
+    }
+    // 5. update innerHTML as a string
+    timer.innerHTML = `${sec.toString()}:${mili.toString()}`
+    // 6. end at 90
+    if (sec >= 90) {
+      endGame()
+    }
+  }
+
+  //TODO: (7) Code to prevent screen from moving upon using arrow keys
   // Disabling screen from scrolling up and down when pressing arrow keys
   // used this code from a google search = https://social.msdn.microsoft.com/Forums/en-US/3a66e3ce-df06-4309-b047-64cf7aa5ffec/how-to-disable-scroll-bar-moving-when-arrow-key-press-down?forum=asphtmlcssjavascript
 
@@ -287,10 +319,8 @@ function init() {
 
   }
 
-  // ? events
+  //TODO: (8) Call functions
   
-
-  // key press event (using keydown for rapid acceleration
   createGrid()
   startButton.addEventListener('click', startGame)
   endButton.addEventListener('click', endGame)
@@ -318,16 +348,20 @@ document.addEventListener('DOMContentLoaded', init)
 // * removeKovacic - else condition for ball going out of play not working (fixed by changing else if statement from || to &&)
 // * disable Kovacic from moving before starting game
 // * Create an internal timer for 90 minutes
+// * Create a timer which displays the running time and uses endGame() function to end the match
+// * disabled endButton() upon creating grid so that only start button can be pressed when loading page
+
 
 
 // ? PENDING
 
 // ? croatiaScore() - turn if statement into ternary - NO NEED for it as if statement has other conditions attached
-// ? refactor collision() to be forEach() = google javascript turn for loop into forEach - Doesn't seem to work, can't figure out why yet.
+// ? refactor collisionEnglandScore() to be forEach() = google javascript turn for loop into forEach - Doesn't seem to work, can't figure out why yet.
 
-// ! REMAINING ISSUES:
 
-// ! Create a displayed timer
-// ! Offer 3 levels of play - where setInterval is 700, 500, 300 for amateur, professional, world class respectively.
-// ! start styling the CSS
+// TODO: REMAINING ISSUES:
+
+// TODO: make a sumary of the javascript on excalidraw.com and refactor the code to suit, and so that I understand the whole process as it's getting a bit much!
+// TODO: Offer 3 levels of play - where setInterval is 700, 500, 300 for amateur, professional, world class respectively.
+// TODO: start styling the CSS
 
