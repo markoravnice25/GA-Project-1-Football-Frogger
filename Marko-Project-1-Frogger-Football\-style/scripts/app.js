@@ -5,7 +5,7 @@
 
 function init() {
 
-  //TODO: (2) ---------------- Create variables/elements -------------------
+  //TODO: (2) ---------------- Create variables/elements ---------------------
   
   //TODO: (2a) HEADER elements
   //* Create global variables for score; star/end buttons; level buttons
