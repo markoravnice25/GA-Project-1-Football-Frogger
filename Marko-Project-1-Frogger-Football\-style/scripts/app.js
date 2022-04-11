@@ -1,5 +1,6 @@
-//TODO: (1a) set up initialization of page
-//* create initialization function upon browser window loading
+//TODO: (1) ----------------- set up initialization of page ------------------
+
+//TODO (1a) create initialization function upon browser window loading
 //* (1b at bottom of page) call the function at the bottom of the Javascript
 
 function init() {
@@ -7,13 +8,16 @@ function init() {
   //TODO: (2) ---------------- Create variables/elements -------------------
   
   //TODO: (2a) HEADER elements
-  //* Create global variables for score; star/end buttons
+  //* Create global variables for score; star/end buttons; level buttons
   //* access elements from INDEX.html
 
   const spanScoreCroatia = document.querySelector('#croatia-score')
   const spanScoreEngland = document.querySelector('#england-score')
   const startButton = document.querySelector('#start')
   const endButton = document.querySelector('#end')
+  const levelOne = document.querySelector('#level-one')
+  const levelTwo = document.querySelector('#level-two')
+  const levelThree = document.querySelector('#level-three')
 
   //TODO: (2b) Create GRID CELLS variables/elements
   //* create GRID variables to create Grid and CELLS.
@@ -27,6 +31,7 @@ function init() {
   //TODO: (2c) Create CHARACTER elements/variables for GRID
   //* Kovacic: (a) create KovacicClass variable to be used in CSS; (b) KovacicStartPosition for grid Display; (c) let kovacicCurrentPosition (will be moving in executeKeyDown function) = kovacicStartPosition
   //* English players: (a) create englishPlayerClass to be used in CSS; (b) create englishPlayerPosition[] array; (c) assign 11 array positions
+  //* assign array positions for englishPlayerPosition[] starting positions.
 
   const goalClassLeft = 'goal-left'
   const goalLeftStartingPosition = 5
@@ -40,7 +45,6 @@ function init() {
   const englishPlayersClass = 'english-players'
   const englishPlayerPosition = []
 
-  //* assign array positions for englishPlayerPosition[] starting positions.
   englishPlayerPosition[0] = 17
   englishPlayerPosition[1] = 37
   englishPlayerPosition[2] = 40
@@ -53,12 +57,13 @@ function init() {
   englishPlayerPosition[9] = 89
   englishPlayerPosition[10] = 93
 
-  //TODO: (2d) Create TIME variables for keeping track of game time 
+  //TODO: (2d) Create TIME variables for keeping track of game time
+  //* timer; timerEnglishPlayerSpeed; liveTimeTimer; time default is 700
 
   const timer = document.querySelector('#timer')
   let timerEnglishPlayerSpeed
   let liveTimeTimer
-  const time = 500
+  let time = 700
 
   //TODO: (3) ------------------ initial GRID creation EXECUTION ----------------------
 
@@ -92,15 +97,16 @@ function init() {
 
   //TODO: (3b) Execution for creating starting Grid
   //* function which is called as soon as browser window is loaded.
+  //* disable endButton() and startButton()
+  //* for Loop iterating for less than the cellCount; create cell variable = document.createElement('div')
+  //* appendChild and push to back of cells array
+  //* add characters to their starting positions: Kovacic, English players, Goal.
+
 
   function createGrid () {
-    // create all grid cells
-    // add cells to array
-    // append cells to grid
     endButton.disabled = true
-
+    startButton.disabled = true
     for (let i = 0; i < cellCount; i++) {
-      // create cell
       const cell = document.createElement('div')
       // cell.innerText = i
       // cell.id = i
@@ -108,7 +114,6 @@ function init() {
       cells.push(cell)
     }
 
-    // add characters to their starting positions Kovacic, English players, Goal.
     addKovacic(kovacicStartPosition)
     addEnglishPlayer(englishPlayerPosition[0])
     addEnglishPlayer(englishPlayerPosition[1])
@@ -123,6 +128,23 @@ function init() {
     addEnglishPlayer(englishPlayerPosition[10])
     addGoalLeft(goalLeftStartingPosition)
     addGoalRight(goalRightStartingPosition)
+  }
+
+  //TODO: (3c) Execution for ASSIGNING levels to play game at:
+  //* enable startButton as level has been chosen
+  //* set time variable according to level chosen
+
+  function levelOneChosen() {
+    startButton.disabled = false
+    time = 700
+  }
+  function levelTwoChosen() {
+    time = 500
+    startButton.disabled = false
+  }
+  function levelThreeChosen() {
+    time = 300
+    startButton.disabled = false
   }
 
   //TODO: (4) ------------------- LIVE GAME EXECUTIONS: ---------------------
@@ -190,7 +212,7 @@ function init() {
 
   //TODO: (4b) ENDING the game
   //* document.removeEventListener('keydown', executeKeyDown)
-  //* disable end button and enable start button
+  //* disable end button and (keep startButton disabled)
   //* window alert with end result.
   //* reset spanScore's to 0.
   //* clearInterval for 'timerEnglishPlayerSpeed' and 'liveTimeTimer'
@@ -200,7 +222,6 @@ function init() {
   function endGame () {
     document.removeEventListener('keydown', executeKeyDown)
     endButton.disabled = true
-    startButton.disabled = false
     window.alert(`the final score, Croatia: ${spanScoreCroatia.innerHTML} England: ${spanScoreEngland.innerHTML}`)
     spanScoreCroatia.innerHTML = 0
     spanScoreEngland.innerHTML = 0
@@ -337,16 +358,19 @@ function init() {
 
   //TODO: (6) Call functions
   //* createGrid called as needed for visual start to ganme.
-  //* addEventListener on click for startButton() and endButton() functions
+  //* addEventListener on click for startGame(), endGame() and levelChosen() functions
   
   createGrid()
   startButton.addEventListener('click', startGame)
   endButton.addEventListener('click', endGame)
+  levelOne.addEventListener('click', levelOneChosen)
+  levelTwo.addEventListener('click', levelTwoChosen)
+  levelThree.addEventListener('click', levelThreeChosen)
 }
 
-//TODO: (1b) set up initialization of page
+//TODO: (1b) call the initialization function for window browser at the bottom of the Javascript
 //* (1a at top of page) create initialization function upon browser window loading
-//* call the function at the bottom of the Javascript for the game
+
 document.addEventListener('DOMContentLoaded', init)
 
 
@@ -370,18 +394,17 @@ document.addEventListener('DOMContentLoaded', init)
 // * Create an internal timer for 90 minutes
 // * Create a timer which displays the running time and uses endGame() function to end the match
 // * disabled endButton() upon creating grid so that only start button can be pressed when loading page
+// * make a sumary of the javascript using comments (//TODO and //*) and refactor the code to suit, and so that I understand the big picture as it's getting a bit much!
+// * Offer 3 levels of play - where setInterval is 700, 500, 300 for amateur, professional, world class respectively.
 
 
 // ? PENDING ISSUES
 
-// ? croatiaScore() - turn if statement into ternary - NO NEED for it as if statement has other conditions attached
 // ? refactor collisionEnglandScore() to be forEach() = google javascript turn for loop into forEach - Doesn't seem to work, can't figure out why yet.
 
 
-// ! REMAINING ISSUES:
+// ! NEXT TASKS:
 
-// ! make a sumary of the javascript on excalidraw.com and refactor the code to suit, and so that I understand the whole process as it's getting a bit much!
-// ! Offer 3 levels of play - where setInterval is 700, 500, 300 for amateur, professional, world class respectively.
 // ! start styling the CSS
 // ! Write a readme.md describing my game.
 
