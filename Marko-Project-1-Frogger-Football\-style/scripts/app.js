@@ -20,6 +20,10 @@ function init() {
   const levelThree = document.querySelector('#level-three')
   const grid = document.querySelector('#grid')
 
+  //* creating variables for Screen overlay and main screen
+  const screenOverlay = document.querySelector('#overlay')
+  const screenMainGame = document.querySelector('#main-game')
+
   //TODO: (2b) Create GRID CELLS variables/elements
   //* create GRID variables and CELLS array.
   
@@ -208,6 +212,8 @@ function init() {
       }
       collisionEnglandScore()
     }, timeInterval)
+    screenOverlay.style.display = 'none'
+    screenMainGame.style.display = 'block'
   }
 
   //TODO: (4b) ENDING the game
@@ -231,6 +237,8 @@ function init() {
     kovacicCurrentPosition = kovacicStartPosition
     addKovacic(kovacicCurrentPosition)
     timer.innerHTML = '00:00'
+    screenMainGame.style.display = 'none'
+    screenOverlay.style.display = 'block'
   }
 
   //TODO: (4c) Kovacic MOVEMENT using arrow keys

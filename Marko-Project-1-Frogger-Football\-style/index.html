@@ -10,35 +10,49 @@
 </head>
 
 <body>
-  <header>
-    <div id="image-container">
-      <img src="images/croatia-flag.jpeg" alt="croatia-flag">
-      <img src="images/world-cup-trophy.jpeg" alt="world-cup-trophy">
-      <img src="images/england-flag.jpeg" alt="england-flag">
-    </div>
-
-    
-    <h2>Choose your level:</h2>
-
-    <button class="level" id="level-one">Amateur</button>
-    <button id="level-two">Professional</button>
-    <button id="level-three">World Class</button>
-    <button id="start">Start</button>
-    <button id="end">End Game</button>
-    <p>Croatia: <span id="croatia-score">0</span></p>
-    <p>England: <span id="england-score">0</span></p>
-      <div id="timer">00:00</div>
-  </header>
 
   <main>
-    <div class="grid-wrapper">
-      <!-- grid container -->
-      <div id="grid">
-        <!-- grid items to go here -->
-      </div>      
+    <div id="overlay">
+      <div id="flags-and-trophy">
+        <div id="image-container">
+          <img src="images/croatia-flag.jpeg" alt="croatia-flag">
+          <img src="images/world-cup-trophy.jpeg" alt="world-cup-trophy">
+          <img src="images/england-flag.jpeg" alt="england-flag">
+        </div>
+      </div>
+      <div id="buttons-overlay">
+        <h2>Choose your level:</h2>
+
+        <button class="level" id="level-one">Amateur</button>
+        <button id="level-two">Professional</button>
+        <button id="level-three">World Class</button>
+        <button id="start">Start</button>
+      </div>
+      <div id="player-pictures">
+        <img src="images/favpng_mateo-kovačić-croatia-national-football-team-football-player-real-madrid-c-f-jersey.png" alt="mateo">
+        <img src="images/imgbin_england-national-football-team-football-player-team-sport-tournament-png.png" alt="">
+      </div>
     </div>
+    <div id="main-game">
+      <div id="game-info">
+        <p>Croatia: <span id="croatia-score">0</span></p>
+        <p>England: <span id="england-score">0</span></p>
+        <div id="timer">00:00</div>
+        <button id="end">End Game</button>
+      </div>
+      <div id="field">
+        <div class="grid-wrapper">
+          <!-- grid container -->
+          <div id="grid">
+            <!-- grid items to go here -->
+          </div>      
+        </div>
+      </div>
+    </div>
+    
   </main>
 
 
   
 </body>
+
