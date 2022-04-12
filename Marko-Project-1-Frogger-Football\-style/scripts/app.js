@@ -7,8 +7,8 @@ function init() {
 
   //TODO: (2) ---------------- Create variables/elements ---------------------
   
-  //TODO: (2a) HEADER elements
-  //* Create global variables for score; star/end buttons; level buttons
+  //TODO: (2a) HTML elements
+  //* Create global variables for score; star/end buttons; level buttons; grid
   //* access elements from INDEX.html
 
   const spanScoreCroatia = document.querySelector('#croatia-score')
@@ -18,11 +18,11 @@ function init() {
   const levelOne = document.querySelector('#level-one')
   const levelTwo = document.querySelector('#level-two')
   const levelThree = document.querySelector('#level-three')
+  const grid = document.querySelector('#grid')
 
   //TODO: (2b) Create GRID CELLS variables/elements
-  //* create GRID variables to create Grid and CELLS.
+  //* create GRID variables and CELLS array.
   
-  const grid = document.querySelector('#grid')
   const width = 12
   const height = 9
   const cellCount = height * width
@@ -58,12 +58,12 @@ function init() {
   englishPlayerPosition[10] = 93
 
   //TODO: (2d) Create TIME variables for keeping track of game time
-  //* timer; timerEnglishPlayerSpeed; liveTimeTimer; time default is 700
+  //* timer; timerEnglishPlayerSpeed; timerLiveTime; timeInterval default is 700
 
   const timer = document.querySelector('#timer')
   let timerEnglishPlayerSpeed
-  let liveTimeTimer
-  let time = 700
+  let timerLiveTime
+  let timeInterval = 700
 
   //TODO: (3) ------------------ initial GRID creation EXECUTION ----------------------
 
@@ -112,7 +112,7 @@ function init() {
       // cell.id = i
       grid.appendChild(cell)
       cells.push(cell)
-    }
+    }    
 
     addKovacic(kovacicStartPosition)
     addEnglishPlayer(englishPlayerPosition[0])
@@ -132,18 +132,18 @@ function init() {
 
   //TODO: (3c) Execution for ASSIGNING levels to play game at:
   //* enable startButton as level has been chosen
-  //* set time variable according to level chosen
+  //* set timeInterval variable according to level chosen
 
   function levelOneChosen() {
     startButton.disabled = false
-    time = 700
+    timeInterval = 700
   }
   function levelTwoChosen() {
-    time = 500
+    timeInterval = 500
     startButton.disabled = false
   }
   function levelThreeChosen() {
-    time = 300
+    timeInterval = 300
     startButton.disabled = false
   }
 
@@ -153,7 +153,7 @@ function init() {
   //* called by document.addEventListener('click', startButton)
   //* call executeKeyDown function upon keydown press for Kovacic movement
   //* disable start button, enable end button
-  //* setInterval() for liveTimeTimer to display live time and end game at certain period.
+  //* setInterval() for timerLiveTime to display live time and end game at certain period.
   //* clearInterval for timerEnglishPlayerSpeed and then  assign setInterval to timerEnglishPlayerSpeed 
   //* for loop to loop through englishPlayerPosition.length; removeEnglishPlayer(currentDefenderPosition); use if/else statements to generate movement of English players; addEnglishPlayer(currentDefenderPosition)
   //* call collisionEnglandScore() function
@@ -164,7 +164,7 @@ function init() {
     startButton.disabled = true
     endButton.disabled = false
 
-    liveTimeTimer = setInterval(liveTime, 100)
+    timerLiveTime = setInterval(liveTime, 100)
 
     clearInterval(timerEnglishPlayerSpeed)
     timerEnglishPlayerSpeed = setInterval(() => {
@@ -207,7 +207,7 @@ function init() {
         addEnglishPlayer(currentDefenderPosition)
       }
       collisionEnglandScore()
-    }, time)
+    }, timeInterval)
   }
 
   //TODO: (4b) ENDING the game
@@ -215,7 +215,7 @@ function init() {
   //* disable end button and (keep startButton disabled)
   //* window alert with end result.
   //* reset spanScore's to 0.
-  //* clearInterval for 'timerEnglishPlayerSpeed' and 'liveTimeTimer'
+  //* clearInterval for 'timerEnglishPlayerSpeed' and 'timerLiveTime'
   //* removeKovacic(kovacicCurrentPosition); place in kovacicStartPosition; addKovacic(kovacicCurrentPosition).
   //* reset timer.innerHTML to 00:00
 
@@ -226,7 +226,7 @@ function init() {
     spanScoreCroatia.innerHTML = 0
     spanScoreEngland.innerHTML = 0
     clearInterval(timerEnglishPlayerSpeed)
-    clearInterval(liveTimeTimer)
+    clearInterval(timerLiveTime)
     removeKovacic(kovacicCurrentPosition)
     kovacicCurrentPosition = kovacicStartPosition
     addKovacic(kovacicCurrentPosition)
@@ -319,7 +319,7 @@ function init() {
     let sec = parseInt(currentTimeArray[0])
     if (mili < 59) {
       mili += 1
-    } else { // 4. increment left side (seconds) by 1 every second.
+    } else {
       mili = 0
       sec += 1
     }
@@ -339,16 +339,16 @@ function init() {
       const e = window.event || e
       const key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0
       if (key === 37 || key === 38 || key === 39 || key === 40) {
-        if (key === 13)
-          document.getElementById('<%=btnFightPokemon.ClientID%>').click()
-        if (key === 37)
-          document.getElementById('<%=ImgBtnWest.ClientID%>').click()
-        if (key === 38)
-          document.getElementById('<%=ImgBtnNorth.ClientID%>').click()
-        if (key === 39)
-          document.getElementById('<%=ImgBtnEast.ClientID%>').click()
-        if (key === 40)
-          document.getElementById('<%=ImgBtnSouth.ClientID%>').click()
+        // if (key === 13)
+        //   document.getElementById('<%=btnFightPokemon.ClientID%>').click()
+        // if (key === 37)
+        //   document.getElementById('<%=ImgBtnWest.ClientID%>').click()
+        // if (key === 38)
+        //   document.getElementById('<%=ImgBtnNorth.ClientID%>').click()
+        // if (key === 39)
+        //   document.getElementById('<%=ImgBtnEast.ClientID%>').click()
+        // if (key === 40)
+        //   document.getElementById('<%=ImgBtnSouth.ClientID%>').click()
         event.returnValue = false
       }
     } catch (Exception) {
@@ -405,6 +405,9 @@ document.addEventListener('DOMContentLoaded', init)
 
 // ! NEXT TASKS:
 
-// ! start styling the CSS
-// ! Write a readme.md describing my game.
+// ! start styling the CSS - design wireframe
+// ! Write a readme.md describing my game - what is a readme.md?
+// ! make goal line out of play
+// ! time limit each dribble or will lose a goal.
+// ! player image use transparent background - use different player for goalkeeper (or each player different)
 

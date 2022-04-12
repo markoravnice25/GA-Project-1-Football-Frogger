@@ -2,11 +2,14 @@
   box-sizing: border-box;
 }
 
-header img {
-display: flex;
-justify-content: space-around;
-align-items: center;
-width: 100px;
+#image-container {
+  display: flex;
+}
+
+img {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
 }
 
 button {
@@ -28,6 +31,8 @@ margin: 0;
 }
 
 #grid {
+  background-image: url(../images/Soccer_Field_Transparant.svg.png);
+  background-size: cover;
   align-items: center;
   /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2); */
   display: flex;
@@ -40,34 +45,34 @@ margin: 0;
 }
 
 #grid div {
-  border: 1px solid lightgrey;
+  /* border: 1px solid lightgrey; */
   flex-grow: 1;
   height: 11.11%;
   width: 8.33%;
 }
 
 #grid div.kovacic {
-  background-image: url('../images/kovacic.png');
+  background-image: url('../images/favpng_mateo-kovačić-croatia-national-football-team-football-player-real-madrid-c-f-jersey.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 #grid div.english-players {
-  background-image: url('../images/english-footballer.jpeg');
+  background-image: url('../images/imgbin_england-national-football-team-football-player-team-sport-tournament-png.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 #grid div.goal-left {
   background-image: url(../images/goal-left.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 #grid div.goal-right {
   background-image: url(../images/goal-right.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 
@@ -86,3 +91,5 @@ margin: 0;
   background-size: 100% 100%;
   background-position: center;
 } */
+
+/*  */
