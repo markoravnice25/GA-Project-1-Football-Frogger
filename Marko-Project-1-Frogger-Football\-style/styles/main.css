@@ -2,23 +2,110 @@
   box-sizing: border-box;
 }
 
+ /* used to fit all body elements on screen */
+html, body {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+/* Overlay Screen CSS */
+
+#overlay {
+  display: block;
+}
+
 #image-container {
   display: flex;
-}
-
-img {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-button {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
-main {
+#image-container div {
+  height: 300px;
+  width: 33%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#croatia-flag {
+  background-image: url('../images/croatia-flag.jpeg');
+  background-size: cover;
+}
+
+#world-cup-trophy {
+  background-image: url('../images/world-cup-trophy.jpeg');
+  background-size: contain;
+}
+
+#england-flag {
+  background-image: url('../images/england-flag.jpeg');
+  background-size: cover;
+}
+
+h2 {
+  text-align: center;
+  font-family: fantasy, helvetica, sans-serif;
+  font-size: 60px;
+  margin: auto;
+  padding: 10px;
+}
+
+.buttons-level {
+  padding: 10px 30px;
+  border: solid 3px;
+  border-radius: 8px
+}
+
+#buttons-level-div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#amateur {
+  background-color: lightpink;
+}
+
+#professional {
+  background-color: orange;
+}
+
+#world-class {
+  background-color: darkorange;
+}
+
+#start-button-div {
+display: flex;
+justify-content: center;
+padding: 40px 0;
+}
+
+#start-button {
+  background-color: lightgreen;
+  position: relative;
+  left: -8px;
+}
+
+#player-pictures {
+  display: flex;
+  background-image: url(../images/Soccer_Field_Transparant.svg.png);
+}
+
+#player-pictures img {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+
+/* Main screen CSS */
+
+#main-game {
+  display: none;
+}
+
+/* main {
 height: 100vh;
 margin: 0;
 }
@@ -34,7 +121,6 @@ margin: 0;
   background-image: url(../images/Soccer_Field_Transparant.svg.png);
   background-size: cover;
   align-items: center;
-  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2); */
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -45,7 +131,6 @@ margin: 0;
 }
 
 #grid div {
-  /* border: 1px solid lightgrey; */
   flex-grow: 1;
   height: 11.11%;
   width: 8.33%;
@@ -73,16 +158,14 @@ margin: 0;
   background-image: url(../images/goal-right.png);
   background-repeat: no-repeat;
   background-size: contain;
-}
+} */
 
-#main-game {
-  display: block
-}
 
-#overlay {
-  display: none
-}
 
+
+
+
+/* ------------------------------ */
 /* div {
   background-color: greenyellow;
   border: 1px solid black;
