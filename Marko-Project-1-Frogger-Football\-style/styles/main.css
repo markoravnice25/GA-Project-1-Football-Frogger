@@ -49,13 +49,15 @@ h2 {
   font-family: fantasy, helvetica, sans-serif;
   font-size: 60px;
   margin: auto;
-  padding: 10px;
+  padding: 50px 0 0 0;
 }
 
-.buttons-level {
+.buttons {
   padding: 10px 30px;
-  border: solid 3px;
-  border-radius: 8px
+  border: solid 3px black;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
 }
 
 #buttons-level-div {
@@ -87,17 +89,6 @@ padding: 40px 0;
   left: -8px;
 }
 
-#player-pictures {
-  display: flex;
-  background-image: url(../images/Soccer_Field_Transparant.svg.png);
-}
-
-#player-pictures img {
-  float: left;
-  width: 50%;
-  padding: 5px;
-}
-
 
 /* Main screen CSS */
 
@@ -105,13 +96,56 @@ padding: 40px 0;
   display: none;
 }
 
-/* main {
+main {
 height: 100vh;
 margin: 0;
 }
 
+#game-header-div {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#game-info-div {
+  display: flex;
+  justify-content: left;
+  color: white;
+  font-family: fantasy;
+}
+
+.game-info {
+  padding: 1px 2px;
+  font-size: 20px;
+}
+
+#croatia, #england {
+  background-color: dodgerblue;
+}
+
+#croatia-score, #england-score {
+  background-color: blue;
+}
+
+#timer-info {
+display: flex;
+justify-content: left;
+color: black;
+font-family: fantasy;
+}
+
+#end-button-div{
+  display: flex;
+  justify-content: right;
+}
+
+#end {
+  background-color: lightcoral;
+}
+
 .grid-wrapper {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,9 +159,10 @@ margin: 0;
   flex-wrap: wrap;
   height: 100%;
   justify-content: center;
-  height: 500px;
-  width: 600px;
+  height: 100%;
+  width: 90%;
   background-color: green;
+  border-radius: 20px;
 }
 
 #grid div {
@@ -158,7 +193,7 @@ margin: 0;
   background-image: url(../images/goal-right.png);
   background-repeat: no-repeat;
   background-size: contain;
-} */
+}
 
 
 

@@ -12,6 +12,7 @@
 <body>
 
   <main>
+    <!-- Screen overlay -->
     <div id="overlay">
       <div id="image-container">
 
@@ -27,41 +28,43 @@
       </div>
       <h2>CHOOSE YOUR LEVEL:</h2>
       <div id="buttons-level-div">
-        <button class="buttons-level" id="amateur">Amateur</button>
-        <button class="buttons-level" id="professional">Professional</button>
-        <button class="buttons-level" id="world-class">World Class</button>
+        <button class="buttons" id="amateur">Amateur</button>
+        <button class="buttons" id="professional">Professional</button>
+        <button class="buttons" id="world-class">World Class</button>
       </div>
-
       <div id="start-button-div">
-        <button class="buttons-level" id="start-button">Start</button>
+        <button class="buttons" id="start-button">Start</button>
       </div>      
-
-      <div id="player-pictures">
-        <img src="images/favpng_mateo-kovačić-croatia-national-football-team-football-player-real-madrid-c-f-jersey.png" alt="mateo">
-        <img src="images/imgbin_england-national-football-team-football-player-team-sport-tournament-png.png" alt="">
+    </div>
+    <!-- main game screen -->
+    <div id="main-game">
+      <div id="game-header-div">
+        <div id="timer-info">
+          <p class="game-info" id="timer">00:00</p>
+        </div>
+        <div id="game-info-div">
+          <p class="game-info" id="croatia">Croatia</p>
+          <p class="game-info" id="croatia-score">0</p>
+          <p class="game-info" id="england-score">0</p>
+          <p class="game-info" id="england">England</p>
+        </div>
+        <div id="end-button-div">
+          <button class="buttons" id="end">End Game</button>
+        </div>
       </div>
     </div>
 
-    <div id="main-game">
-      <div id="game-info">
-        <p>Croatia: <span id="croatia-score">0</span></p>
-        <p>England: <span id="england-score">0</span></p>
-        <div id="timer">00:00</div>
-        <button id="end">End Game</button>
-      </div>
+
       <div id="field">
         <div class="grid-wrapper">
           <!-- grid container -->
           <div id="grid">
+
             <!-- grid items to go here -->
           </div>      
         </div>
       </div>
     </div>
-    
   </main>
-
-
-  
 </body>
 

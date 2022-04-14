@@ -11,13 +11,13 @@ function init() {
   //* Create global variables for score; star/end buttons; level buttons; grid
   //* access elements from INDEX.html
 
-  const spanScoreCroatia = document.querySelector('#croatia-score')
-  const spanScoreEngland = document.querySelector('#england-score')
-  const startButton = document.querySelector('#start')
+  const scoreCroatia = document.querySelector('#croatia-score')
+  const scoreEngland = document.querySelector('#england-score')
+  const startButton = document.querySelector('#start-button')
   const endButton = document.querySelector('#end')
-  const levelOne = document.querySelector('#level-one')
-  const levelTwo = document.querySelector('#level-two')
-  const levelThree = document.querySelector('#level-three')
+  const levelOne = document.querySelector('#amateur')
+  const levelTwo = document.querySelector('#professional')
+  const levelThree = document.querySelector('#world-class')
   const grid = document.querySelector('#grid')
 
   //* creating variables for Screen overlay and main screen
@@ -228,9 +228,9 @@ function init() {
   function endGame () {
     document.removeEventListener('keydown', executeKeyDown)
     endButton.disabled = true
-    window.alert(`the final score, Croatia: ${spanScoreCroatia.innerHTML} England: ${spanScoreEngland.innerHTML}`)
-    spanScoreCroatia.innerHTML = 0
-    spanScoreEngland.innerHTML = 0
+    window.alert(`the final score, Croatia: ${scoreCroatia.innerHTML} England: ${scoreEngland.innerHTML}`)
+    scoreCroatia.innerHTML = 0
+    scoreEngland.innerHTML = 0
     clearInterval(timerEnglishPlayerSpeed)
     clearInterval(timerLiveTime)
     removeKovacic(kovacicCurrentPosition)
@@ -260,7 +260,7 @@ function init() {
 
     if (key === left && kovacicCurrentPosition % width !== 0) {
       kovacicCurrentPosition--
-    } else if (key === up && kovacicCurrentPosition >= width) {
+    } else if (key === up && kovacicCurrentPosition >= width + 12) {
       kovacicCurrentPosition -= 12
     } else if (key === right && kovacicCurrentPosition % width !== width - 1) {
       kovacicCurrentPosition++
@@ -289,7 +289,7 @@ function init() {
   function collisionEnglandScore() {
     for (let i = 0; i < englishPlayerPosition.length; i++) {
       if (englishPlayerPosition[i] === kovacicCurrentPosition) {
-        spanScoreEngland.innerHTML = parseInt(spanScoreEngland.innerHTML) + 1
+        scoreEngland.innerHTML = parseInt(scoreEngland.innerHTML) + 1
         window.alert('Goal for England!')
         removeKovacic(kovacicCurrentPosition)
         kovacicCurrentPosition = kovacicStartPosition
@@ -304,7 +304,7 @@ function init() {
 
   function croatiaScore() {
     if (kovacicCurrentPosition === 5 || kovacicCurrentPosition === 6) {
-      spanScoreCroatia.innerHTML = parseInt(spanScoreCroatia.innerHTML) + 1
+      scoreCroatia.innerHTML = parseInt(scoreCroatia.innerHTML) + 1
       removeKovacic(kovacicCurrentPosition)
       window.alert('Goal for Croatia!')
       kovacicCurrentPosition = kovacicStartPosition
@@ -332,7 +332,7 @@ function init() {
       sec += 1
     }
     timer.innerHTML = `${sec.toString()}:${mili.toString()}`
-    if (sec >= 9) {
+    if (sec >= 3) {
       endGame()
     }
   }
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', init)
 // * just move defenders using remove and add functions using setInterval method
 // * refactor englishPlayerPosition[i] = currentDefenderPosition to one line rather than after every if statement.
 // * refactor appicable code to ternary function.
-// * Croatia score - add to spanScoreCroatia.innerHTML
+// * Croatia score - add to scoreCroatia.innerHTML
 // * hook up start buttons - disable start button after pressed
 // * end button function to end game and allow for restart using start button - end button disabled until start button pressed
 // * startGame function - (fixed by disabling start button after until end Game button is pressed) when doing it second time around the grid updates x2.
@@ -404,7 +404,10 @@ document.addEventListener('DOMContentLoaded', init)
 // * disabled endButton() upon creating grid so that only start button can be pressed when loading page
 // * make a sumary of the javascript using comments (//TODO and //*) and refactor the code to suit, and so that I understand the big picture as it's getting a bit much!
 // * Offer 3 levels of play - where setInterval is 700, 500, 300 for amateur, professional, world class respectively.
-
+// * start styling the CSS - design wireframe
+// * player image use transparent background
+// * make goal line out of play
+// * #game-info moves along with timer - need it to be stable
 
 // ? PENDING ISSUES
 
@@ -413,9 +416,16 @@ document.addEventListener('DOMContentLoaded', init)
 
 // ! NEXT TASKS:
 
-// ! start styling the CSS - design wireframe
+
 // ! Write a readme.md describing my game - what is a readme.md?
-// ! make goal line out of play
+
 // ! time limit each dribble or will lose a goal.
-// ! player image use transparent background - use different player for goalkeeper (or each player different)
+// ! use different player for goalkeeper (or each player different)
+// ! add audio
+// ! allow goals for croatia
+// ! movemenet in score from timer.
+
+
+
+
 
