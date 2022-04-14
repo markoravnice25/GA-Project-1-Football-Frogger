@@ -49,6 +49,8 @@ function init() {
   const englishPlayersClass = 'english-players'
   const englishPlayerPosition = []
 
+  const goalkeeperClass = 'goalkeeper'
+
   englishPlayerPosition[0] = 17
   englishPlayerPosition[1] = 37
   englishPlayerPosition[2] = 40
@@ -411,6 +413,7 @@ document.addEventListener('DOMContentLoaded', init)
 // * disable movemenet in score due to timer movement.
 // * CSS some proper goals
 // * changed goals bacground-size to 'cover' as when using 'contain' there was gap when expanding field.
+// * change kovacic picture to more appropriate
 
 
 // ? PENDING ISSUES
@@ -428,7 +431,6 @@ document.addEventListener('DOMContentLoaded', init)
 // ! use different player for goalkeeper (or each player different)
 // ! add audio
 // ! change to window alerts?
-// ! change kovacic picture
 
 
 

@@ -69,12 +69,24 @@ h2 {
   background-color: lightpink;
 }
 
+#amateur:hover {
+  background-color: salmon;
+}
+
 #professional {
   background-color: orange;
 }
 
+#professional:hover {
+  background-color: darkorange;
+}
+
 #world-class {
   background-color: darkorange;
+}
+
+#world-class:hover {
+  background-color: red;
 }
 
 #start-button-div {
@@ -87,6 +99,10 @@ padding: 40px 0;
   background-color: lightgreen;
   position: relative;
   left: -8px;
+}
+
+#start-button:hover {
+  background-color: green;
 }
 
 
@@ -144,6 +160,10 @@ margin: 0;
   background-color: lightcoral;
 }
 
+#end:hover {
+  background-color: coral;
+}
+
 .grid-wrapper {
   height: 80vh;
   display: flex;
@@ -178,6 +198,12 @@ margin: 0;
 
 #grid div.english-players {
   background-image: url('../images/imgbin_england-national-football-team-football-player-team-sport-tournament-png.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#grid div.goalkeeper {
+  background-image: url('../images/toppng.com-jordan-pickford-390x487.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
