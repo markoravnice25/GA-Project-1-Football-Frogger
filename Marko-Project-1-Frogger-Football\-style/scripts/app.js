@@ -46,10 +46,12 @@ function init() {
   const kovacicStartPosition = 101
   let kovacicCurrentPosition = kovacicStartPosition
 
+  const goalkeeperClass = 'goalkeeper'
+  const goalkeeperStartingPosition = 17
+  let currentGoalkeeperPosition = goalkeeperStartingPosition
+
   const englishPlayersClass = 'english-players'
   const englishPlayerPosition = []
-
-  const goalkeeperClass = 'goalkeeper'
 
   englishPlayerPosition[0] = 17
   englishPlayerPosition[1] = 37
@@ -93,6 +95,14 @@ function init() {
     cells[position].classList.remove(englishPlayersClass)
   }
 
+  function addGoalkeeper(position) {
+    cells[position].classList.add(goalkeeperClass)
+  }
+
+  function removeGoalkeeper(position) {
+    cells[position].classList.remove(goalkeeperClass)
+  }
+
   function addGoalLeft(position) {
     cells[position].classList.add(goalClassLeft)
   }
@@ -121,7 +131,9 @@ function init() {
     }    
 
     addKovacic(kovacicStartPosition)
-    addEnglishPlayer(englishPlayerPosition[0])
+    addGoalkeeper(goalkeeperStartingPosition)
+    // * English player removed at array position [0] because goalkeeper picture inserted instead
+    // addEnglishPlayer(englishPlayerPosition[0])
     addEnglishPlayer(englishPlayerPosition[1])
     addEnglishPlayer(englishPlayerPosition[2])
     addEnglishPlayer(englishPlayerPosition[3])
@@ -175,10 +187,17 @@ function init() {
     clearInterval(timerEnglishPlayerSpeed)
     timerEnglishPlayerSpeed = setInterval(() => {
       // console.log('setInterval check')
+
+      removeGoalkeeper(currentGoalkeeperPosition)
+      currentGoalkeeperPosition = (currentGoalkeeperPosition === 17 ? 18 : 17)
+      addGoalkeeper(currentGoalkeeperPosition)
+
       for (let i = 0; i < englishPlayerPosition.length; i++) {
         let currentDefenderPosition = englishPlayerPosition[i]
 
         removeEnglishPlayer(currentDefenderPosition)
+
+        // * 'if (i === 0)' doesn't execute as the function for addEnglishPlayer(englishPlayerPosition[0]) has been commented out - goalkeeper added instead.
 
         if (i === 0) {
           // accessing goalkeeper
@@ -414,6 +433,9 @@ document.addEventListener('DOMContentLoaded', init)
 // * CSS some proper goals
 // * changed goals bacground-size to 'cover' as when using 'contain' there was gap when expanding field.
 // * change kovacic picture to more appropriate
+// * gave buttons a hover effect
+// * change rashford pic to Harry Kane.
+// * add Pickford as goalkeeper
 
 
 // ? PENDING ISSUES
@@ -428,9 +450,11 @@ document.addEventListener('DOMContentLoaded', init)
 
 // ! time limit each dribble or will lose a goal.
 
-// ! use different player for goalkeeper (or each player different)
 // ! add audio
 // ! change to window alerts?
+
+
+
 
 
 
