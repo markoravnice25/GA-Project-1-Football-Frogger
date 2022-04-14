@@ -14,7 +14,7 @@ html, body {
 /* Overlay Screen CSS */
 
 #overlay {
-  display: none;
+  display: block;
 }
 
 #image-container {
@@ -93,7 +93,7 @@ padding: 40px 0;
 /* Main screen CSS */
 
 #main-game {
-  display: block;
+  display: none;
 }
 
 main {
@@ -171,7 +171,7 @@ margin: 0;
 }
 
 #grid div.kovacic {
-  background-image: url('../images/favpng_mateo-kovačić-croatia-national-football-team-football-player-real-madrid-c-f-jersey.png');
+  background-image: url('../images/Mateo\ Kovacic\ -\ FootyRenders.png');
   background-repeat: no-repeat;
   background-size: contain;
 }

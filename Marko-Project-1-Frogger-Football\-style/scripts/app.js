@@ -428,6 +428,7 @@ document.addEventListener('DOMContentLoaded', init)
 // ! use different player for goalkeeper (or each player different)
 // ! add audio
 // ! change to window alerts?
+// ! change kovacic picture
 
 
 
