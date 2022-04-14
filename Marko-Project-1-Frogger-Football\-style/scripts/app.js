@@ -498,7 +498,8 @@ document.addEventListener('DOMContentLoaded', init)
 // * change rashford pic to Harry Kane.
 // * add Pickford as goalkeeper
 // * display none on start button which changes to display block upon choosing level
-
+// * high score board for each of the three levels
+// * Write a readme.md describing my game - what is a readme.md?
 
 
 // ? PENDING ISSUES
@@ -507,9 +508,6 @@ document.addEventListener('DOMContentLoaded', init)
 
 
 // ! NEXT TASKS:
-
-// ! Write a readme.md describing my game - what is a readme.md?
-// ! high score board
 
 // ! comment CSS and HTML
 // ! time limit each dribble or will lose a goal.

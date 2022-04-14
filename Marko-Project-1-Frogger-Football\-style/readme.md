@@ -1,34 +1,48 @@
-# World Cup Croatia vs England
+# Project 1: World Cup Croatia vs England
 
-Create a fundraiser widget that looks like the wireframe below.
-
-![fundraiser (1)](https://media.git.generalassemb.ly/user/17639/files/c2e07680-7035-11eb-908c-6cf4d0f70ec1)
+World Cup Croatia vs England is based on the Frogger game. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal. England players can be changed according to image, but Harry Macguire gets the nod at the moment, with Pickford in goals.
 
 <br/>
 
-You must make a plan before you start coding and have a member of the instructional team sign you off.  
-<br/>
+## **Game link**
 
-This is to be pair coded, only one person typing at a time using either Live Share or one person screen sharing.
-
+-----
 
 <br/>
 
-## **Requirements**
-<br/>
+## **Technologies used**
 
-* Must implement HTML structure of the wireframe
-* Component should be centered on the page
-* Add 3 buttons for donations of **£1**, **£5**, and **£10.** Clicking these buttons should donate that amount to the campaign.
-* Once the target has been reached, you should no longer be able to accept donations
-* As the value changes, through clicks to the donation buttons, or through changes made by the setInterval, the UI **should update accordingly.**
+## **HTML**
+* 2 main screens - an overlay and a main game screen.
 
-**Bonus tasks:**
-* When the page loads, the scrollbar should be animated from 0 to its current value.
-* Every 10 seconds, a **random** donation of either **£1**, **£5**, or **£10,** should be made to the campaign. You should use setInterval to implement this.
-* Every time a donation is made, a sound plays.
+## **CSS**
+* flex-box used to position majority of elements on page.
 
+## **JavaScript**
+* keyDown to move characters.
+* localStorage to set high score.
+* 3 levels of play
 
-<br/>
+## **Key learnings**
+* Flex-box
+* using Div's as containers for easier CSS
+* localStorage to set high score
+* setInterval
+* creating screen overlay
 
-The basics of the wireframe should be met, however you are free to incorporate some of your own style with CSS/CSS animations too!
+## **Challenges**
+* CSS - how to have images taken from the internet aligned when they have different properties
+* The timer - when something is in the same div container it makes micro-movements as the timer's digits change.
+
+## **Future improvements**
+* Refactor code and comment CSS and HTML for future reference (as done in Javascript)
+* more regualar git add/commit/push to git hub with clear comments.
+* have all English players with their own character.
+* Allow for 2 players - Where an English player attacks the Croatian defence.
+* function to pick which footballer you want to dribble with.
+* time-limit for player dribbling to make it more difficult and prevent dribbling around the sides.
+* change window alerts to a div with better styling.
+* BETTER USE OF CSS and STYLING in General.
+
+## **Bugs**
+* no obvious bugs
