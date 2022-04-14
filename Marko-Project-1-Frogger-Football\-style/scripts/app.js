@@ -260,7 +260,7 @@ function init() {
 
     if (key === left && kovacicCurrentPosition % width !== 0) {
       kovacicCurrentPosition--
-    } else if (key === up && kovacicCurrentPosition >= width + 12) {
+    } else if (key === up && kovacicCurrentPosition >= width + 12 || kovacicCurrentPosition === 17 || kovacicCurrentPosition === 18) {
       kovacicCurrentPosition -= 12
     } else if (key === right && kovacicCurrentPosition % width !== width - 1) {
       kovacicCurrentPosition++
@@ -408,6 +408,10 @@ document.addEventListener('DOMContentLoaded', init)
 // * player image use transparent background
 // * make goal line out of play
 // * #game-info moves along with timer - need it to be stable
+// * allow goals for croatia as last line has been coded to be out of play - allow entry into goal area.
+// * disable movemenet in score due to timer movement.
+// * CSS some proper goals
+
 
 // ? PENDING ISSUES
 
@@ -420,10 +424,12 @@ document.addEventListener('DOMContentLoaded', init)
 // ! Write a readme.md describing my game - what is a readme.md?
 
 // ! time limit each dribble or will lose a goal.
+
 // ! use different player for goalkeeper (or each player different)
 // ! add audio
-// ! allow goals for croatia
-// ! movemenet in score from timer.
+// ! change to window alerts?
+
+
 
 
 

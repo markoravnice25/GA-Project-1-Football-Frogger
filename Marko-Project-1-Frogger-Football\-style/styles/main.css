@@ -101,6 +101,13 @@ height: 100vh;
 margin: 0;
 }
 
+#timer-info-div {
+  display: flex;
+  justify-content: left;
+  font-family: fantasy;
+  margin-left: 5%;
+  }
+
 #game-header-div {
   display: flex;
   justify-content: space-between;
@@ -110,7 +117,6 @@ margin: 0;
 
 #game-info-div {
   display: flex;
-  justify-content: left;
   color: white;
   font-family: fantasy;
 }
@@ -128,16 +134,10 @@ margin: 0;
   background-color: blue;
 }
 
-#timer-info {
-display: flex;
-justify-content: left;
-color: black;
-font-family: fantasy;
-}
-
 #end-button-div{
   display: flex;
   justify-content: right;
+  padding: 15px;
 }
 
 #end {
@@ -145,7 +145,7 @@ font-family: fantasy;
 }
 
 .grid-wrapper {
-  height: 90vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,7 +157,6 @@ font-family: fantasy;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
   justify-content: center;
   height: 100%;
   width: 90%;
