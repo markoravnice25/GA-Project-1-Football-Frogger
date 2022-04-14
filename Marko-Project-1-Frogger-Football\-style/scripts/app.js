@@ -19,6 +19,7 @@ function init() {
   const levelTwo = document.querySelector('#professional')
   const levelThree = document.querySelector('#world-class')
   const grid = document.querySelector('#grid')
+  const highScoreAmateur = document.querySelector('#high-score-amateur')
 
   //* creating variables for Screen overlay and main screen
   const screenOverlay = document.querySelector('#overlay')
@@ -72,6 +73,13 @@ function init() {
   let timerEnglishPlayerSpeed
   let timerLiveTime
   let timeInterval = 700
+
+  //TODO: (2e) High score localStorage
+
+  let localStorageHighScoreAmateur = localStorage.getItem('highest-goal-difference-amateur')
+  if (localStorageHighScoreAmateur) {
+    highScoreAmateur.innerHTML = localStorageHighScoreAmateur
+  }
 
   //TODO: (3) ------------------ initial GRID creation EXECUTION ----------------------
 
@@ -155,14 +163,17 @@ function init() {
   function levelOneChosen() {
     startButton.disabled = false
     timeInterval = 700
+    startButton.style.display = 'block'
   }
   function levelTwoChosen() {
     timeInterval = 500
     startButton.disabled = false
+    startButton.style.display = 'block'
   }
   function levelThreeChosen() {
     timeInterval = 300
     startButton.disabled = false
+    startButton.style.display = 'block'
   }
 
   //TODO: (4) ------------------- LIVE GAME EXECUTIONS: ---------------------
@@ -250,8 +261,6 @@ function init() {
     document.removeEventListener('keydown', executeKeyDown)
     endButton.disabled = true
     window.alert(`the final score, Croatia: ${scoreCroatia.innerHTML} England: ${scoreEngland.innerHTML}`)
-    scoreCroatia.innerHTML = 0
-    scoreEngland.innerHTML = 0
     clearInterval(timerEnglishPlayerSpeed)
     clearInterval(timerLiveTime)
     removeKovacic(kovacicCurrentPosition)
@@ -260,6 +269,19 @@ function init() {
     timer.innerHTML = '00:00'
     screenMainGame.style.display = 'none'
     screenOverlay.style.display = 'block'
+    startButton.style.display = 'none'
+    if (timeInterval === 700) { // amateur level
+      const goalDifference = parseInt(scoreCroatia.innerHTML) - parseInt(scoreEngland.innerHTML)
+      if (highScoreAmateur.innerHTML === '0' && goalDifference > parseInt(highScoreAmateur.innerHTML)) {
+        highScoreAmateur.innerHTML = goalDifference
+        localStorage.setItem('highest-goal-difference-amateur', goalDifference)
+      } else if (goalDifference > parseInt(highScoreAmateur.innerHTML)) {
+        highScoreAmateur.innerHTML = goalDifference
+        localStorage.setItem('highest-goal-difference-amateur', goalDifference)
+      }
+    }
+    scoreCroatia.innerHTML = 0
+    scoreEngland.innerHTML = 0
   }
 
   //TODO: (4c) Kovacic MOVEMENT using arrow keys
@@ -436,6 +458,8 @@ document.addEventListener('DOMContentLoaded', init)
 // * gave buttons a hover effect
 // * change rashford pic to Harry Kane.
 // * add Pickford as goalkeeper
+// * display none on start button which changes to display block upon choosing level
+
 
 
 // ? PENDING ISSUES
@@ -445,13 +469,18 @@ document.addEventListener('DOMContentLoaded', init)
 
 // ! NEXT TASKS:
 
-
 // ! Write a readme.md describing my game - what is a readme.md?
+// ! high score board
 
+// ! comment CSS and HTML
 // ! time limit each dribble or will lose a goal.
-
-// ! add audio
 // ! change to window alerts?
+
+
+
+
+
+
 
 
 

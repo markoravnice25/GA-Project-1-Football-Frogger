@@ -1,4 +1,4 @@
-# Fundraiser challenge
+# World Cup Croatia vs England
 
 Create a fundraiser widget that looks like the wireframe below.
 

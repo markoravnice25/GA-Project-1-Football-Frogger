@@ -99,6 +99,7 @@ padding: 40px 0;
   background-color: lightgreen;
   position: relative;
   left: -8px;
+  display: none;
 }
 
 #start-button:hover {
