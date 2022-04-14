@@ -20,6 +20,8 @@ function init() {
   const levelThree = document.querySelector('#world-class')
   const grid = document.querySelector('#grid')
   const highScoreAmateur = document.querySelector('#high-score-amateur')
+  const highScoreProfessional = document.querySelector('#high-score-professional')
+  const highScoreWorldClass = document.querySelector('#high-score-world-class')
 
   //* creating variables for Screen overlay and main screen
   const screenOverlay = document.querySelector('#overlay')
@@ -76,9 +78,22 @@ function init() {
 
   //TODO: (2e) High score localStorage
 
-  let localStorageHighScoreAmateur = localStorage.getItem('highest-goal-difference-amateur')
+  // * storing highest score for amateur
+  const localStorageHighScoreAmateur = localStorage.getItem('highest-goal-difference-amateur')
   if (localStorageHighScoreAmateur) {
     highScoreAmateur.innerHTML = localStorageHighScoreAmateur
+  }
+
+  // * storing highest score for professional
+  const localStorageHighScoreProfessional = localStorage.getItem('highest-goal-difference-professional')
+  if (localStorageHighScoreProfessional) {
+    highScoreProfessional.innerHTML = localStorageHighScoreProfessional
+  }
+
+  // * storing highest score for world class
+  const localStorageHighScoreWorldClass = localStorage.getItem('highest-goal-difference-world-class')
+  if (localStorageHighScoreWorldClass) {
+    highScoreWorldClass.innerHTML = localStorageHighScoreWorldClass
   }
 
   //TODO: (3) ------------------ initial GRID creation EXECUTION ----------------------
@@ -270,6 +285,7 @@ function init() {
     screenMainGame.style.display = 'none'
     screenOverlay.style.display = 'block'
     startButton.style.display = 'none'
+    // * Setting high scores for different levels
     if (timeInterval === 700) { // amateur level
       const goalDifference = parseInt(scoreCroatia.innerHTML) - parseInt(scoreEngland.innerHTML)
       if (highScoreAmateur.innerHTML === '0' && goalDifference > parseInt(highScoreAmateur.innerHTML)) {
@@ -280,6 +296,29 @@ function init() {
         localStorage.setItem('highest-goal-difference-amateur', goalDifference)
       }
     }
+
+    if (timeInterval === 500) { // professional level
+      const goalDifference = parseInt(scoreCroatia.innerHTML) - parseInt(scoreEngland.innerHTML)
+      if (highScoreProfessional.innerHTML === '0' && goalDifference > parseInt(highScoreProfessional.innerHTML)) {
+        highScoreProfessional.innerHTML = goalDifference
+        localStorage.setItem('highest-goal-difference-professional', goalDifference)
+      } else if (goalDifference > parseInt(highScoreProfessional.innerHTML)) {
+        highScoreAmateur.innerHTML = goalDifference
+        localStorage.setItem('highest-goal-difference-professional', goalDifference)
+      }
+    }
+
+    if (timeInterval === 300) { // world class level
+      const goalDifference = parseInt(scoreCroatia.innerHTML) - parseInt(scoreEngland.innerHTML)
+      if (highScoreWorldClass.innerHTML === '0' && goalDifference > parseInt(highScoreWorldClass.innerHTML)) {
+        highScoreWorldClass.innerHTML = goalDifference
+        localStorage.setItem('highest-goal-difference-world-class', goalDifference)
+      } else if (goalDifference > parseInt(highScoreWorldClass.innerHTML)) {
+        highScoreWorldClass.innerHTML = goalDifference
+        localStorage.setItem('highest-goal-difference-world-class', goalDifference)
+      }
+    }
+
     scoreCroatia.innerHTML = 0
     scoreEngland.innerHTML = 0
   }
@@ -375,7 +414,7 @@ function init() {
       sec += 1
     }
     timer.innerHTML = `${sec.toString()}:${mili.toString()}`
-    if (sec >= 3) {
+    if (sec >= 5) {
       endGame()
     }
   }
