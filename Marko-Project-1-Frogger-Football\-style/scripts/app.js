@@ -407,7 +407,6 @@ document.addEventListener('DOMContentLoaded', init)
 // * start styling the CSS - design wireframe
 // * player image use transparent background
 // * make goal line out of play
-// * #game-info moves along with timer - need it to be stable
 // * allow goals for croatia as last line has been coded to be out of play - allow entry into goal area.
 // * disable movemenet in score due to timer movement.
 // * CSS some proper goals
