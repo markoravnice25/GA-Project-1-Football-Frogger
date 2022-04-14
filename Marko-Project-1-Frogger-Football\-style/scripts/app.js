@@ -410,6 +410,7 @@ document.addEventListener('DOMContentLoaded', init)
 // * allow goals for croatia as last line has been coded to be out of play - allow entry into goal area.
 // * disable movemenet in score due to timer movement.
 // * CSS some proper goals
+// * changed goals bacground-size to 'cover' as when using 'contain' there was gap when expanding field.
 
 
 // ? PENDING ISSUES
