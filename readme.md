@@ -2,7 +2,7 @@
 
 World Cup Croatia vs England is based on the Frogger game. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6.
 
-images/overlay-screen.png
+/Users/markofilipovic/development/PROJECTS/Project-one/images/overlay-screen.png
 
 England gets a goal if they intercept Kovacic. If Kovacic moves out of play or the player uses a key other than an arrow key, Kovacic is returned to his starting position (grid 101).
 
