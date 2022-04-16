@@ -14,7 +14,7 @@ html, body {
 /* Overlay Screen CSS */
 
 #overlay {
-  display: block;
+  display: none;
 }
 
 #image-container {
@@ -115,7 +115,7 @@ padding: 40px 0;
 /* Main screen CSS */
 
 #main-game {
-  display: none;
+  display: block;
 }
 
 main {
