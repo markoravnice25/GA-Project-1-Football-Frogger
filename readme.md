@@ -1,8 +1,12 @@
 # Project 1: World Cup Croatia vs England
 
-World Cup Croatia vs England is based on the Frogger game. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6.
+This is my first game after 2 weeks of the General Assembly software enginnering immersive program (which goes for 13 weeks total).
 
-/Users/markofilipovic/development/PROJECTS/Project-one/images/overlay-screen.png
+## **Game link**
+
+https://markoravnice25.github.io/GAProject-1-Football-Frogger/
+
+World Cup Croatia vs England is based on the Frogger game. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6.
 
 England gets a goal if they intercept Kovacic. If Kovacic moves out of play or the player uses a key other than an arrow key, Kovacic is returned to his starting position (grid 101).
 
@@ -10,9 +14,23 @@ There are three levels to the game with higher levels moving the English defende
 
 <br/>
 
-## **Game link**
+A wireframe was first designed for the screen overlay:
 
-https://markoravnice25.github.io/GAProject-1-Football-Frogger/
+/Users/markofilipovic/development/PROJECTS/Project-one/images/wireframe for overlay design.png
+
+Followed by a wireframe for the main game screen: 
+
+/Users/markofilipovic/development/PROJECTS/Project-one/images/wireframe-draft-1 Marko-Project-1-png.png
+
+The end products were fairly similar to the originally envisioned design.
+
+Screen overlay:
+
+/Users/markofilipovic/development/PROJECTS/Project-one/images/overlay-screen.png
+
+Main game screen:
+
+/Users/markofilipovic/development/PROJECTS/Project-one/images/main-screen.png
 
 <br/>
 
