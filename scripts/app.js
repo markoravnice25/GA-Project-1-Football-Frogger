@@ -8,7 +8,7 @@ function init() {
   //TODO: (2) ---------------- Create variables/elements ---------------------
   
   //TODO: (2a) HTML elements
-  //* Create global variables for score; star/end buttons; level buttons; grid
+  //* Create global variables for score; start/end buttons; level buttons; grid; high scores using localStorage
   //* access elements from INDEX.html
 
   const scoreCroatia = document.querySelector('#croatia-score')
@@ -37,6 +37,7 @@ function init() {
 
   //TODO: (2c) Create CHARACTER elements/variables for GRID
   //* Kovacic: (a) create KovacicClass variable to be used in CSS; (b) KovacicStartPosition for grid Display; (c) let kovacicCurrentPosition (will be moving in executeKeyDown function) = kovacicStartPosition
+  //* Goalkeeper: (a) create goalkeeperClass variable to be used in CSS; create goalkeeperStartingPosition variable for grid position; (c) create currentGoalkeeperPosition (begins on goalkeeperStartingPosition)
   //* English players: (a) create englishPlayerClass to be used in CSS; (b) create englishPlayerPosition[] array; (c) assign 11 array positions
   //* assign array positions for englishPlayerPosition[] starting positions.
 
@@ -172,12 +173,12 @@ function init() {
   }
 
   //TODO: (3c) Execution for ASSIGNING levels to play game at:
-  //* enable startButton as level has been chosen
+  //* enable startButton after level has been chosen
   //* set timeInterval variable according to level chosen
 
   function levelOneChosen() {
-    startButton.disabled = false
     timeInterval = 700
+    startButton.disabled = false
     startButton.style.display = 'block'
   }
   function levelTwoChosen() {
@@ -271,6 +272,8 @@ function init() {
   //* clearInterval for 'timerEnglishPlayerSpeed' and 'timerLiveTime'
   //* removeKovacic(kovacicCurrentPosition); place in kovacicStartPosition; addKovacic(kovacicCurrentPosition).
   //* reset timer.innerHTML to 00:00
+  //* go back to screen overlay
+  //* set high-score for the level playerd if applicable.
 
   function endGame () {
     document.removeEventListener('keydown', executeKeyDown)
@@ -303,7 +306,7 @@ function init() {
         highScoreProfessional.innerHTML = goalDifference
         localStorage.setItem('highest-goal-difference-professional', goalDifference)
       } else if (goalDifference > parseInt(highScoreProfessional.innerHTML)) {
-        highScoreAmateur.innerHTML = goalDifference
+        highScoreProfessional.innerHTML = goalDifference
         localStorage.setItem('highest-goal-difference-professional', goalDifference)
       }
     }
@@ -400,7 +403,7 @@ function init() {
   //* 3. create variables for mili and sec as numbers for the two strings (using parseInt())
   //* 4. using if/else statementsincrement the right side (milliseconds) by 1 every 0.01 second, until 59 is reached, then increment sec by 1.
   //* 5. update timer.innerHTML to a string
-  //* 6. nex if statement to call endGame() function once sec >= 9
+  //* 6. next if statement to call endGame() function once sec >= 9
 
   function liveTime() {
     const currentTime = timer.innerHTML
@@ -414,7 +417,7 @@ function init() {
       sec += 1
     }
     timer.innerHTML = `${sec.toString()}:${mili.toString()}`
-    if (sec >= 5) {
+    if (sec >= 9) {
       endGame()
     }
   }
@@ -451,11 +454,11 @@ function init() {
   //* addEventListener on click for startGame(), endGame() and levelChosen() functions
   
   createGrid()
-  startButton.addEventListener('click', startGame)
-  endButton.addEventListener('click', endGame)
   levelOne.addEventListener('click', levelOneChosen)
   levelTwo.addEventListener('click', levelTwoChosen)
   levelThree.addEventListener('click', levelThreeChosen)
+  startButton.addEventListener('click', startGame)
+  endButton.addEventListener('click', endGame)
 }
 
 //TODO: (1b) call the initialization function for window browser at the bottom of the Javascript
@@ -502,16 +505,16 @@ document.addEventListener('DOMContentLoaded', init)
 // * Write a readme.md describing my game - what is a readme.md?
 
 
-// ? PENDING ISSUES
-
-// ? refactor collisionEnglandScore() to be forEach() = google javascript turn for loop into forEach - Doesn't seem to work, can't figure out why yet.
-
-
 // ! NEXT TASKS:
 
 // ! comment CSS and HTML
 // ! time limit each dribble or will lose a goal.
 // ! change to window alerts?
+
+// Weekend tasks:
+// do readme
+// outcomes assignment
+// organise my code and understand it.
 
 
 
