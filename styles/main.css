@@ -1,8 +1,9 @@
+/* border-box useful whenr creating CSS with boxes and padding */
 * {
   box-sizing: border-box;
 }
 
- /* used to fit all body elements on screen */
+ /* Screen to stay fixed with no up/down movement */
 html, body {
   position:fixed;
   top:0;
@@ -11,17 +12,28 @@ html, body {
   right:0;
 }
 
-/* Overlay Screen CSS */
+/* body - margin removed */
+body {
+  /* height not necessary - need to check what is purpose for this */
+  height: 100vh; 
+  margin: 0;
+  }
 
+/* ------------------------------------------------- */
+/* Screen 1: Overlay Screen */
+/* ------------------------------------------------- */
 #overlay {
-  display: none;
+  display: block;
+/* display: block so that this container is first one seen - main game set to display: none */
 }
 
+/* top image container */
 #image-container {
   display: flex;
   justify-content: space-between;
 }
 
+/* individual 3 images */
 #image-container div {
   height: 300px;
   width: 33%;
@@ -29,21 +41,25 @@ html, body {
   background-repeat: no-repeat;
 }
 
+/* image 1/3 */
 #croatia-flag {
   background-image: url('../images/croatia-flag.jpeg');
   background-size: cover;
 }
 
+/* image 2/3 */
 #world-cup-trophy {
   background-image: url('../images/world-cup-trophy.jpeg');
   background-size: contain;
 }
 
+/* image 3/3 */
 #england-flag {
   background-image: url('../images/england-flag.jpeg');
   background-size: cover;
 }
 
+/* choose level container */
 h2 {
   text-align: center;
   font-family: fantasy, helvetica, sans-serif;
@@ -52,6 +68,7 @@ h2 {
   padding: 50px 0 0 0;
 }
 
+/* buttons class */
 .buttons {
   padding: 10px 30px;
   border: solid 3px black;
@@ -60,11 +77,13 @@ h2 {
   cursor: pointer;
 }
 
+/* container for level buttons */
 #buttons-level-div {
   display: flex;
   justify-content: space-evenly;
 }
 
+/* button level 1/3 */
 #amateur {
   background-color: lightpink;
 }
@@ -73,6 +92,7 @@ h2 {
   background-color: salmon;
 }
 
+/* button level 2/3 */
 #professional {
   background-color: orange;
 }
@@ -81,6 +101,7 @@ h2 {
   background-color: darkorange;
 }
 
+/* button level 3/3 */
 #world-class {
   background-color: darkorange;
 }
@@ -89,17 +110,20 @@ h2 {
   background-color: red;
 }
 
+/* high-score styling */
 .high-score {
   font-family: fantasy, helvetica, sans-serif;
   padding: 5px;
 }
 
+/* container for start-button-div */
 #start-button-div {
 display: flex;
 justify-content: center;
 padding: 40px 0;
 }
 
+/* start-button styling */
 #start-button {
   background-color: lightgreen;
   position: relative;
@@ -111,18 +135,16 @@ padding: 40px 0;
   background-color: green;
 }
 
-
+/* ------------------------------------------------- */
 /* Main screen CSS */
+/* ------------------------------------------------- */
 
+/* whole section only displays upon clicking start button, and then the 0verlay displays as none */
 #main-game {
-  display: block;
+  display: none;
 }
 
-main {
-height: 100vh;
-margin: 0;
-}
-
+/* container for timer */
 #timer-info-div {
   display: flex;
   justify-content: left;
@@ -130,6 +152,7 @@ margin: 0;
   margin-left: 5%;
   }
 
+  /* container for scores and end button */
 #game-header-div {
   display: flex;
   justify-content: space-between;
@@ -137,12 +160,21 @@ margin: 0;
   margin-right: 5%;
 }
 
+/* container for scores */
 #game-info-div {
   display: flex;
   color: white;
   font-family: fantasy;
 }
 
+/* container for end button */
+#end-button-div{
+  display: flex;
+  justify-content: right;
+  padding: 15px;
+}
+
+/* styling for countries, scores, end button */
 .game-info {
   padding: 1px 2px;
   font-size: 20px;
@@ -156,12 +188,6 @@ margin: 0;
   background-color: blue;
 }
 
-#end-button-div{
-  display: flex;
-  justify-content: right;
-  padding: 15px;
-}
-
 #end {
   background-color: lightcoral;
 }
@@ -170,32 +196,33 @@ margin: 0;
   background-color: coral;
 }
 
+/* class whole grid */
 .grid-wrapper {
   height: 80vh;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
+/* whole grid styling */
 #grid {
   background-image: url(../images/Soccer_Field_Transparant.svg.png);
   background-size: cover;
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  height: 100%;
   width: 90%;
   background-color: green;
   border-radius: 20px;
 }
 
+/* individual grid size */
 #grid div {
-  flex-grow: 1;
-  height: 11.11%;
+  /* flex-grow: 1;
+  height: 11.11%; */
+  /* only width property needed - not sure why height property not needed? */
   width: 8.33%;
 }
 
+/* characters */
 #grid div.kovacic {
   background-image: url('../images/Mateo\ Kovacic\ -\ FootyRenders.png');
   background-repeat: no-repeat;
@@ -225,26 +252,3 @@ margin: 0;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-
-
-
-
-
-/* ------------------------------ */
-/* div {
-  background-color: greenyellow;
-  border: 1px solid black;
-  width: 8%;
-  height: 80px;
-  margin-bottom: 3px;
-} */
-
-/* .english-defender {
-  background-image: url('../images/english-footballer.jpeg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-} */
-
-/*  */

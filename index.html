@@ -12,74 +12,71 @@
 </head>
 
 <body>
-  <main>
-    <!-- ----------------------------------------- -->
-    <!-- Screen overlay section -->
-    <!-- ----------------------------------------- -->
-    <div id="overlay">
-      <!-- container for top third -->
-      <div id="image-container">
-        <!-- div's for 3 images in top third -->
-        <div id="croatia-flag">         
-        </div>
-        <div id="world-cup-trophy">
-        </div>
-        <div id="england-flag">
-        </div> 
+  <!-- ----------------------------------------- -->
+  <!-- Screen overlay section -->
+  <!-- ----------------------------------------- -->
+  <div id="overlay">
+    <!-- container for top third -->
+    <div id="image-container">
+      <!-- div's for 3 images in top third -->
+      <div id="croatia-flag">         
       </div>
-      <!-- choose level heading -->
-      <h2>CHOOSE YOUR LEVEL:</h2>
-      <!-- container for level buttons -->
-      <div id="buttons-level-div">
-        <!-- for styling purposes in CSS, buttons given class of 'buttons' with individual ID's; high score given class of 'high-score with spans having individual ID's -->
-        <div>
-          <button class="buttons" id="amateur">Amateur</button>
-          <div class="high-score">High score: <span id="high-score-amateur">0</span></div>
-        </div>
-        <div>
-          <button class="buttons" id="professional">Professional</button>
-          <div class="high-score">High score: <span id="high-score-professional">0</span></div>
-        </div>
-        <div>
-          <button class="buttons" id="world-class">World Class</button>
-          <div class="high-score">High score: <span id="high-score-world-class">0</span></div>
-        </div>
+      <div id="world-cup-trophy">
       </div>
-      <!-- start button (displays upon level being selected) -->
-      <div id="start-button-div">
-        <button class="buttons" id="start-button">Start</button>
-      </div>      
+      <div id="england-flag">
+      </div> 
     </div>
+    <!-- choose level heading -->
+    <h2>CHOOSE YOUR LEVEL:</h2>
+    <!-- container for level buttons -->
+    <div id="buttons-level-div">
+      <!-- for styling purposes in CSS, buttons given class of 'buttons' with individual ID's; high score given class of 'high-score with spans having individual ID's -->
+      <div>
+        <button class="buttons" id="amateur">Amateur</button>
+        <div class="high-score">High score: <span id="high-score-amateur">0</span></div>
+      </div>
+      <div>
+        <button class="buttons" id="professional">Professional</button>
+        <div class="high-score">High score: <span id="high-score-professional">0</span></div>
+      </div>
+      <div>
+        <button class="buttons" id="world-class">World Class</button>
+        <div class="high-score">High score: <span id="high-score-world-class">0</span></div>
+      </div>
+    </div>
+    <!-- start button (displays upon level being selected) -->
+    <div id="start-button-div">
+      <button class="buttons" id="start-button">Start</button>
+    </div>      
+  </div>
 
-    <!-- ----------------------------------------- -->
-    <!-- main game screen -->
-    <!-- ----------------------------------------- -->
-    <div id="main-game">
-      <!-- timer has own container as it moves and therefore other containers inline look like they're rapidly moving -->
-      <div id="timer-info-div">
-        <p class="game-info" id="timer">00:00</p>
+  <!-- ----------------------------------------- -->
+  <!-- main game screen -->
+  <!-- ----------------------------------------- -->
+  <div id="main-game">
+    <!-- timer has own container as it moves and therefore other containers inline look like they're rapidly moving -->
+    <div id="timer-info-div">
+      <p class="game-info" id="timer">00:00</p>
+    </div>
+    <!-- container for scores and end button -->
+    <div id="game-header-div">
+      <div id="game-info-div">
+        <p class="game-info" id="croatia">Croatia</p>
+        <p class="game-info" id="croatia-score">0</p>
+        <p class="game-info" id="england-score">0</p>
+        <p class="game-info" id="england">England</p>
       </div>
-      <!-- container for scores and end button -->
-      <div id="game-header-div">
-        <div id="game-info-div">
-          <p class="game-info" id="croatia">Croatia</p>
-          <p class="game-info" id="croatia-score">0</p>
-          <p class="game-info" id="england-score">0</p>
-          <p class="game-info" id="england">England</p>
-        </div>
-        <div id="end-button-div">
-          <button class="buttons" id="end">End Game</button>
-        </div>
+      <div id="end-button-div">
+        <button class="buttons" id="end">End Game</button>
       </div>
     </div>
-    <!-- container for whole field -->
-        <div class="grid-wrapper">
-          <!-- grid container for indivudual 108 grids -->
-          <div id="grid">
-            <!-- grid items to go here -->
-          </div>      
-        </div>
-    </div>
-  </main>
+  <!-- container for whole field -->
+    <div class="grid-wrapper">
+      <!-- grid container for indivudual 108 grids -->
+      <div id="grid">
+        <!-- grid items to go here -->
+      </div>      
+    </div>  
+  </div>
 </body>
 
