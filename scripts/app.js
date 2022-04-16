@@ -422,7 +422,7 @@ function init() {
     }
   }
 
-  //TODO: (5) Code to prevent screen from moving upon using arrow keys
+  //TODO: (5) (This code is not needed! as we have fixed the screen to window size in CSS). This Code is to prevent screen from moving upon using arrow keys
   //* used this code from a google search = https://social.msdn.microsoft.com/Forums/en-US/3a66e3ce-df06-4309-b047-64cf7aa5ffec/how-to-disable-scroll-bar-moving-when-arrow-key-press-down?forum=asphtmlcssjavascript
   //* Disables screen from scrolling up and down when pressing arrow keys
 
@@ -503,18 +503,18 @@ document.addEventListener('DOMContentLoaded', init)
 // * display none on start button which changes to display block upon choosing level
 // * high score board for each of the three levels
 // * Write a readme.md describing my game - what is a readme.md?
+// * comment CSS and HTML - organise code and understand it.
 
-
-// ! NEXT TASKS:
-
-// ! comment CSS and HTML
-// ! time limit each dribble or will lose a goal.
-// ! change to window alerts?
 
 // Weekend tasks:
 // do readme
 // outcomes assignment
-// organise my code and understand it.
+
+// ? Additional TASKS:
+
+// ? time limit each dribble or will lose a goal.
+// ? change to window alerts?
+
 
 
 
