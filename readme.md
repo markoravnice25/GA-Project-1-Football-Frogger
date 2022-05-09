@@ -14,9 +14,10 @@ There are three levels to the game with higher levels moving the English defende
 
 <br/>
 
+
 A wireframe was first designed for the screen overlay:
 
-/Users/markofilipovic/development/PROJECTS/Project-one/images/wireframe for overlay design.png
+<img width="827" alt="wireframe for overlay design" src="https://user-images.githubusercontent.com/101732786/167477281-2fabbcca-3cbf-4b5f-a79f-41a5119cd70b.png">
 
 Followed by a wireframe for the main game screen: 
 
