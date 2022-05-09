@@ -19,12 +19,12 @@ A wireframe was first designed for look of the screen overlay and main screen:
 
 <img width="827" alt="wireframe for overlay design" src="https://user-images.githubusercontent.com/101732786/167477281-2fabbcca-3cbf-4b5f-a79f-41a5119cd70b.png">
 
-Followed by a wireframe for the functionality of the main game screen: 
+Followed by a wireframe for the functionality of the main game screen - the original idea was to have two teams play against each other, but that proved too complicated to do within the time frame given for the project, so a frogger-style 1 player against a team was used:
 
 ![wireframe-draft-1 Marko-Project-1-png](https://user-images.githubusercontent.com/101732786/167477568-5c9755b7-ec4b-4873-b8c3-ba5ac58812f7.png)
 
 
-The end products were fairly similar to the originally envisioned design.
+The end products were fairly similar to the originally envisioned design:
 
 Screen overlay:
 
@@ -88,14 +88,14 @@ Upon clicking the start button, the player is moved onto the game screen, where 
 * The timer - when something is in the same div container it makes micro-movements as the timer's digits change. To solve this, I moved the timer into it's own block.
 
 ## **Future improvements**
+* BETTER USE OF CSS and STYLING in General - definitely needed to improve the styling.
+* Add audio and new dynamic screens for key events - goals scored and game finished. 
 * more regualar git add/commit/push to git hub with clear comments.
 * have all English players with their own character/player.
 * Allow for 2 player game - Where the second option is for an English player to attack the Croatian defence.
 * function to pick which footballer you want to dribble with.
 * time-limit for player dribbling to make it more difficult and prevent dribbling around the sides (which is easier).
 * change window alerts to a div with better styling.
-* Add audio and new screens for key events - goals scored and game finished. 
-* BETTER USE OF CSS and STYLING in General.
 
 ## **Bugs**
 * no obvious bugs
