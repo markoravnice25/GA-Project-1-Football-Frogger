@@ -15,23 +15,25 @@ There are three levels to the game with higher levels moving the English defende
 <br/>
 
 
-A wireframe was first designed for the screen overlay:
+A wireframe was first designed for look of the screen overlay and main screen:
 
 <img width="827" alt="wireframe for overlay design" src="https://user-images.githubusercontent.com/101732786/167477281-2fabbcca-3cbf-4b5f-a79f-41a5119cd70b.png">
 
-Followed by a wireframe for the main game screen: 
+Followed by a wireframe for the functionality of the main game screen: 
 
-/Users/markofilipovic/development/PROJECTS/Project-one/images/wireframe-draft-1 Marko-Project-1-png.png
+![wireframe-draft-1 Marko-Project-1-png](https://user-images.githubusercontent.com/101732786/167477568-5c9755b7-ec4b-4873-b8c3-ba5ac58812f7.png)
+
 
 The end products were fairly similar to the originally envisioned design.
 
 Screen overlay:
 
-/Users/markofilipovic/development/PROJECTS/Project-one/images/overlay-screen.png
+<img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
 
 Main game screen:
 
-/Users/markofilipovic/development/PROJECTS/Project-one/images/main-screen.png
+<img width="1272" alt="main-screen" src="https://user-images.githubusercontent.com/101732786/167477765-733711a2-68e3-4638-b6ac-e96303b3ffd0.png">
+
 
 <br/>
 
