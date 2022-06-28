@@ -3,7 +3,7 @@
 Table of Contents:
 
 * Project Overview
-* The Brief
+* Game Brief
 * Technologies Used
 * Approach Taken
 * Featured Code
@@ -23,9 +23,25 @@ There are three levels to the game with English defenders moving faster at each 
 
 Link: [Football-Frogger](https://markoravnice25.github.io/GAProject-1-Football-Frogger/)
 
+Screen Overlay:
+<img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
+
+Main game screen:
+<img width="1272" alt="main-screen" src="https://user-images.githubusercontent.com/101732786/167477765-733711a2-68e3-4638-b6ac-e96303b3ffd0.png">
+
 <br/>
 
-<a href="http://example.com](https://markoravnice25.github.io/GAProject-1-Football-Frogger/" target="_blank">test-link</a>
+## Game Brief
+
+* Render a grid based game in the browser
+* Create a one-player game against the computer
+* The 11 computer footballers move within their grid positions so that a whole row of grids can be covered at any time.
+* The computer footballers can move randomly either left or right.
+* Design logic for winning and losing and display this on the screen
+* Create high score in local storage
+* Create different levels to the game
+* Include separate HTML, CSS and JavaScript files
+* Deploy game online
 
 
 A wireframe was first designed for look of the screen overlay and main screen:
