@@ -2,7 +2,7 @@
 
 Table of Contents:
 
-* Project Overview
+* [Project Overview](https://github.com/markoravnice25/GAProject-1-Football-Frogger#project-overview)
 * Game Brief
 * Planning
 * Technologies Used
