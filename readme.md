@@ -4,13 +4,13 @@ Table of Contents:
 
 * Project Overview
 * Game Brief
+* Planning
 * Technologies Used
-* Approach Taken
 * Featured Code
-* Screenshots
+* Key Learnings
+* Challenges
 * Bugs
-* Wins and Blockers
-* Future Content and Improvements
+* Future improvements
 * Key Learnings
 
 ## **Project Overview**
@@ -43,8 +43,9 @@ Main game screen:
 * Include separate HTML, CSS and JavaScript files
 * Deploy game online
 
+## **Planning**
 
-A wireframe was first designed for look of the screen overlay and main screen:
+A basic wireframe was first designed for look of the screen overlay and main screen:
 
 <img width="827" alt="wireframe for overlay design" src="https://user-images.githubusercontent.com/101732786/167477281-2fabbcca-3cbf-4b5f-a79f-41a5119cd70b.png">
 
@@ -53,7 +54,7 @@ Followed by a wireframe for the functionality of the main game screen - the orig
 ![wireframe-draft-1 Marko-Project-1-png](https://user-images.githubusercontent.com/101732786/167477568-5c9755b7-ec4b-4873-b8c3-ba5ac58812f7.png)
 
 
-The end products were fairly similar to the originally envisioned design:
+The end products were fairly similar to the originally envisioned design, although an obvious difference was the user only controlling one player as opposed to 11 players as originally envisioned.
 
 <br/>
 
@@ -61,16 +62,14 @@ The end products were fairly similar to the originally envisioned design:
 
 ## **HTML**
 * 2 main screens were designed - an overlay and a main game screen.
-
-The overlay allows the player to pick a level (amateur, professional or world-class) and then start the game.
-
-Upon clicking the start button, the player is moved onto the game screen, where English players are set up in a football style 1-4-3-3 system within a field of 108 grids.
+* The overlay allows the player to pick a level (amateur, professional or world-class) and then start the game.
+* Upon clicking the start button, the player is moved onto the game screen, where English players are set up in a football style 1-4-3-3 system within a field of 108 grids.
 
 ## **CSS**
 * CSS was used at a fairly basic level, the overlay screen had a few boxed images and the buttons were styled in a basic and consistent way using flex-box
 * The main game screen was also simple, using flex-box to have the timer, game scores and end button logically spaced.
 * On the field some images were used including:
-- The football players were no-background images sourced from the internet.
+- The football players with no-background images sourced from the internet.
 - a generic football field and goal.
 
 ## **JavaScript**
@@ -95,6 +94,8 @@ Upon clicking the start button, the player is moved onto the game screen, where 
 
 5) Events section where we call the createGrid() function and use addEventListener() to call the button functions.
 
+## **Featured Code**
+
 ## **Key learnings**
 * How to use Flex-box
 * using Div's as containers for easier CSS
@@ -107,6 +108,9 @@ Upon clicking the start button, the player is moved onto the game screen, where 
 * CSS - how to have images taken from the internet aligned when they have different properties.
 * The timer - when something is in the same div container it makes micro-movements as the timer's digits change. To solve this, I moved the timer into it's own block.
 
+## **Bugs**
+* no obvious bugs
+
 ## **Future improvements**
 * BETTER USE OF CSS and STYLING in General - definitely needed to improve the styling.
 * Add audio and new dynamic screens for key events - goals scored and game finished. 
@@ -117,5 +121,3 @@ Upon clicking the start button, the player is moved onto the game screen, where 
 * time-limit for player dribbling to make it more difficult and prevent dribbling around the sides (which is easier).
 * change window alerts to a div with better styling.
 
-## **Bugs**
-* no obvious bugs
