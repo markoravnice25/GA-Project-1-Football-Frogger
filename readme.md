@@ -96,6 +96,66 @@ The end products were fairly similar to the originally envisioned design, althou
 
 ## **Featured Code**
 
+`  function startGame() {
+    document.addEventListener('keydown', executeKeyDown) // called in startGame() function so that Kovacic can only move once game has started, not before
+    startButton.disabled = true
+    endButton.disabled = false
+
+    timerLiveTime = setInterval(liveTime, 100)
+
+    clearInterval(timerEnglishPlayerSpeed)
+    timerEnglishPlayerSpeed = setInterval(() => {
+      // console.log('setInterval check')
+
+      removeGoalkeeper(currentGoalkeeperPosition)
+      currentGoalkeeperPosition = (currentGoalkeeperPosition === 17 ? 18 : 17)
+      addGoalkeeper(currentGoalkeeperPosition)
+
+      for (let i = 0; i < englishPlayerPosition.length; i++) {
+        let currentDefenderPosition = englishPlayerPosition[i]
+
+        removeEnglishPlayer(currentDefenderPosition)
+
+        // * 'if (i === 0)' doesn't execute as the function for addEnglishPlayer(englishPlayerPosition[0]) has been commented out - goalkeeper added instead.
+
+        if (i === 0) {
+          // accessing goalkeeper
+          // console.log(`moving goalkeeper. currentDefenderPosition: ${currentDefenderPosition}`)
+          currentDefenderPosition = (currentDefenderPosition === 17 ? 18 : 17)
+        } else if (i > 0 && i < 5) {
+          //accessing defensive line
+          // console.log('defensive line active')
+          if (currentDefenderPosition % 3 === 1) {
+            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
+            // accessing central defender position to randomly move right or left
+          } else if (currentDefenderPosition % 3 === 0) {
+            //left position - send player right
+            currentDefenderPosition += 1
+          } else if (currentDefenderPosition % 3 === 2) {
+            // right position - send player left
+            currentDefenderPosition -= 1
+          }
+        } else {
+          // accessing mids and forwards who are both in a line of 3.
+          if (currentDefenderPosition % 4 === 1) {
+            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
+          } else if (currentDefenderPosition % 4 === 2) {
+            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
+          } else if (currentDefenderPosition % 4 === 0) {
+            currentDefenderPosition += 1
+          } else if (currentDefenderPosition % 4 === 3) {
+            currentDefenderPosition -= 1
+          }
+        }
+        englishPlayerPosition[i] = currentDefenderPosition              
+        addEnglishPlayer(currentDefenderPosition)
+      }
+      collisionEnglandScore()
+    }, timeInterval)
+    screenOverlay.style.display = 'none'
+    screenMainGame.style.display = 'block'
+  }`
+
 ## **Key learnings**
 * How to use Flex-box
 * using Div's as containers for easier CSS
