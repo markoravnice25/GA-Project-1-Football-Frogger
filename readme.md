@@ -4,7 +4,6 @@ Table of Contents:
 
 Project Overview
 The Brief
-
 Technologies Used
 
 Approach Taken
@@ -18,7 +17,6 @@ Bugs
 Wins and Blockers
 
 Future Content and Improvements
-
 Key Learnings
 
 ## **Project Overview**
