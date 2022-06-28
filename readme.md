@@ -23,7 +23,7 @@ There are three levels to the game with English defenders moving faster at each 
 
 Link: [Football-Frogger](https://markoravnice25.github.io/GAProject-1-Football-Frogger/)
 
-Screen Overlay:
+Screen overlay:
 <img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
 
 Main game screen:
@@ -54,15 +54,6 @@ Followed by a wireframe for the functionality of the main game screen - the orig
 
 
 The end products were fairly similar to the originally envisioned design:
-
-Screen overlay:
-
-<img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
-
-Main game screen:
-
-<img width="1272" alt="main-screen" src="https://user-images.githubusercontent.com/101732786/167477765-733711a2-68e3-4638-b6ac-e96303b3ffd0.png">
-
 
 <br/>
 
