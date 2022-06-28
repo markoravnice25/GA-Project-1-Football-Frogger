@@ -1,16 +1,27 @@
 # Project 1: World Cup Croatia vs England
 
-This is my first game after 2 weeks of the General Assembly software enginnering immersive program (which goes for 13 weeks total).
+Table of Contents:
 
-## **Game link**
+Project Overview
+The Brief
+Technologies Used
+Approach Taken
+Featured Code
+Screenshots
+Bugs
+Wins and Blockers
+Future Content and Improvements
+Key Learnings
 
-https://markoravnice25.github.io/GAProject-1-Football-Frogger/
+## **Project Overview**
 
-World Cup Croatia vs England is based on the Frogger game. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6.
+This is my first project after 2 weeks of the General Assembly software enginnering immersive program (which goes for 13 weeks total).
 
-England gets a goal if they intercept Kovacic. If Kovacic moves out of play or the player uses a key other than an arrow key, Kovacic is returned to his starting position (grid 101).
+World Cup Croatia vs England is a grid-based game modelled on the 1981 arcade action game Frogger. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6, whereas England gets a goal if they intercept Kovacic before he scores. If Kovacic moves out of play or the player uses a key other than an arrow key, the ball is considered out of play and Kovacic is returned to his starting position (grid 101).
 
-There are three levels to the game with higher levels moving the English defenders faster; and there is a timer of 54 seconds - this can be varied according to player taste.
+There are three levels to the game with English defenders moving faster at each higher level; and there is a timer of 54 seconds which can be varied according to player taste.
+
+Link: https://markoravnice25.github.io/GAProject-1-Football-Frogger/
 
 <br/>
 
