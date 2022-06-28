@@ -2,7 +2,7 @@
 
 Table of Contents:
 
-Project Overview
+* Project Overview
 The Brief
 Technologies Used
 
