@@ -96,6 +96,8 @@ The end products were fairly similar to the originally envisioned design, althou
 
 ## **Featured Code**
 
+The main role of the startGame() function is to remove footballers from their current grid and simultaneously add them to another grid giving the appearance of moving footballers. The for loop separates the rows of English footballers into three categories - depending if there is 1 footballer, 3 footballers or 4 footballers in a row. The modulus function is used to find the current position on the grid of the footballer and then the addEnglishPlayer() function is called to add the footballer to either the relative left or right grid to the defender's position.
+
     function startGame() {
     document.addEventListener('keydown', executeKeyDown) // called in startGame() function so that Kovacic can only move once game has started, not before
     startButton.disabled = true
