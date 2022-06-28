@@ -25,6 +25,8 @@ Link: [Football-Frogger](https://markoravnice25.github.io/GAProject-1-Football-F
 
 <br/>
 
+<a href="http://example.com](https://markoravnice25.github.io/GAProject-1-Football-Frogger/" target="_blank">test-link</a>
+
 
 A wireframe was first designed for look of the screen overlay and main screen:
 
