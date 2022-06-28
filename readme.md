@@ -21,7 +21,7 @@ World Cup Croatia vs England is a grid-based game modelled on the 1981 arcade ac
 
 There are three levels to the game with English defenders moving faster at each higher level; and there is a timer of 54 seconds which can be varied according to player taste.
 
-Link: https://markoravnice25.github.io/GAProject-1-Football-Frogger/
+Link: [Football-Frogger](https://markoravnice25.github.io/GAProject-1-Football-Frogger/)
 
 <br/>
 
