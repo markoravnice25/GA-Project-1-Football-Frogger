@@ -96,7 +96,7 @@ The end products were fairly similar to the originally envisioned design, althou
 
 ## **Featured Code**
 
-`  function startGame() {
+    function startGame() {
     document.addEventListener('keydown', executeKeyDown) // called in startGame() function so that Kovacic can only move once game has started, not before
     startButton.disabled = true
     endButton.disabled = false
@@ -154,7 +154,7 @@ The end products were fairly similar to the originally envisioned design, althou
     }, timeInterval)
     screenOverlay.style.display = 'none'
     screenMainGame.style.display = 'block'
-  }`
+    }
 
 ## **Key learnings**
 * How to use Flex-box
