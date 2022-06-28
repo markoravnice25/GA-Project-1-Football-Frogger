@@ -3,21 +3,15 @@
 Table of Contents:
 
 * Project Overview
-The Brief
-Technologies Used
-
-Approach Taken
-
-Featured Code
-
-Screenshots
-
-Bugs
-
-Wins and Blockers
-
-Future Content and Improvements
-Key Learnings
+* The Brief
+* Technologies Used
+* Approach Taken
+* Featured Code
+* Screenshots
+* Bugs
+* Wins and Blockers
+* Future Content and Improvements
+* Key Learnings
 
 ## **Project Overview**
 
