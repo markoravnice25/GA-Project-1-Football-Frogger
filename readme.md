@@ -96,70 +96,14 @@ The end products were fairly similar to the originally envisioned design, althou
 
 ## **Featured Code**
 
-The main role of the startGame() function is to remove footballers from their current grid and simultaneously add them to another grid giving the appearance of moving footballers. The for loop separates the rows of English footballers into three categories - depending if there is 1 footballer, 3 footballers or 4 footballers in a row. The modulus function is used to find the current position on the grid of the footballer and then the addEnglishPlayer() function is called to add the footballer to either the relative left or right grid to the defender's position.
+This for loop is part of the startGame() function. Its pourpose is to remove footballers from their current grid position and simultaneously add that footballer to another grid on the left or right giving the appearance of moving footballers. A let variable is declared 'currentDefenderPosition' and it is passed into the removeEnglishPlayer() function so that the footballer is 'removed' from their position in the grid at the start of the for loop. At the end of the for loop the currentDefenderPosition is passed into the addEnglishPlayer() function and the footballer is 'added' to another grid position specified during the control flow (if/else statements). There are 108 grid positions in total (0-107) - 12 grids per row with 9 rows.
+The for loop separates the rows of English footballers into three categories:
+* Only 1 footballer in the row (Goalkeeper row): In this instance a ternary is used as the Goalkeeper can only be in grid position 17 or 18, hence the Goalkeeper is added to the grid position in which he currently isn't.
+* 4 footballers in the row (defensive line row): The modulus function is used to find the current position of the defensive player. As there are 12 grids in the row with 4 players, each one of the players can 'move between 3 grid positions. When they are on the outer left or outer right, the control flow logic adds that footballer back to the centre position of the three; however, if the player is in the central position, we use the (Math.floor(Math.random() * 2) === 0) method on line 237 to randomly add the footballer to either the left or right position relative to his current position.
+* 3 footballers in a row (midfield and attacking line): The logic here is the same as for the defensive line, with the only difference being that each player now covers for grid positions, meaning that there are 2 central positions from which to use the (Math.floor(Math.random() * 2) === 0) method to randomly add the footballer to either the left or right position relative to his current position.
 
 <img width="1210" alt="Screen Shot 2022-06-29 at 10 33 22 am" src="https://user-images.githubusercontent.com/101732786/176390949-99aaa69d-4442-4786-a4f4-09caa37d6012.png">
 
-
-    function startGame() {
-    document.addEventListener('keydown', executeKeyDown) // called in startGame() function so that Kovacic can only move once game has started, not before
-    startButton.disabled = true
-    endButton.disabled = false
-
-    timerLiveTime = setInterval(liveTime, 100)
-
-    clearInterval(timerEnglishPlayerSpeed)
-    timerEnglishPlayerSpeed = setInterval(() => {
-      // console.log('setInterval check')
-
-      removeGoalkeeper(currentGoalkeeperPosition)
-      currentGoalkeeperPosition = (currentGoalkeeperPosition === 17 ? 18 : 17)
-      addGoalkeeper(currentGoalkeeperPosition)
-
-      for (let i = 0; i < englishPlayerPosition.length; i++) {
-        let currentDefenderPosition = englishPlayerPosition[i]
-
-        removeEnglishPlayer(currentDefenderPosition)
-
-        // * 'if (i === 0)' doesn't execute as the function for addEnglishPlayer(englishPlayerPosition[0]) has been commented out - goalkeeper added instead.
-
-        if (i === 0) {
-          // accessing goalkeeper
-          // console.log(`moving goalkeeper. currentDefenderPosition: ${currentDefenderPosition}`)
-          currentDefenderPosition = (currentDefenderPosition === 17 ? 18 : 17)
-        } else if (i > 0 && i < 5) {
-          //accessing defensive line
-          // console.log('defensive line active')
-          if (currentDefenderPosition % 3 === 1) {
-            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
-            // accessing central defender position to randomly move right or left
-          } else if (currentDefenderPosition % 3 === 0) {
-            //left position - send player right
-            currentDefenderPosition += 1
-          } else if (currentDefenderPosition % 3 === 2) {
-            // right position - send player left
-            currentDefenderPosition -= 1
-          }
-        } else {
-          // accessing mids and forwards who are both in a line of 3.
-          if (currentDefenderPosition % 4 === 1) {
-            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
-          } else if (currentDefenderPosition % 4 === 2) {
-            currentDefenderPosition += (Math.floor(Math.random() * 2) === 0) ? -1 : 1
-          } else if (currentDefenderPosition % 4 === 0) {
-            currentDefenderPosition += 1
-          } else if (currentDefenderPosition % 4 === 3) {
-            currentDefenderPosition -= 1
-          }
-        }
-        englishPlayerPosition[i] = currentDefenderPosition              
-        addEnglishPlayer(currentDefenderPosition)
-      }
-      collisionEnglandScore()
-    }, timeInterval)
-    screenOverlay.style.display = 'none'
-    screenMainGame.style.display = 'block'
-    }
 
 ## **Key learnings**
 * How to use Flex-box
