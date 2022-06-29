@@ -73,7 +73,7 @@ The end products were fairly similar to the originally envisioned design, althou
 - a generic football field and goal.
 
 ## **JavaScript**
-The JavaScript is sectioned out as follows:
+**The JavaScript is sectioned out as follows:
 
 1) Global variables created: including an array of English players; time variables for setInterval() method; localStorage for high scores.
 
