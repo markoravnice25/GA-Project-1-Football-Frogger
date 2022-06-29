@@ -15,7 +15,7 @@ Table of Contents:
  
 ## **Project Overview**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is my first project after 2 weeks of the General Assembly software enginnering immersive program (which goes for 13 weeks total).
+This is my first project after 2 weeks of the General Assembly software enginnering immersive program (which goes for 13 weeks total).
 
 World Cup Croatia vs England is a grid-based game modelled on the 1981 arcade action game Frogger. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6, whereas England gets a goal if they intercept Kovacic before he scores. If Kovacic moves out of play or the player uses a key other than an arrow key, the ball is considered out of play and Kovacic is returned to his starting position (grid 101).
 
@@ -61,7 +61,7 @@ The end products were fairly similar to the originally envisioned design, althou
 ## **Technologies used**
 
 ## **HTML**
-   * 2 main screens were designed - an overlay and a main game screen.
+* 2 main screens were designed - an overlay and a main game screen.
 * The overlay allows the player to pick a level (amateur, professional or world-class) and then start the game.
 * Upon clicking the start button, the player is moved onto the game screen, where English players are set up in a football style 1-4-3-3 system within a field of 108 grids.
 
@@ -69,8 +69,8 @@ The end products were fairly similar to the originally envisioned design, althou
 * CSS was used at a fairly basic level, the overlay screen had a few boxed images and the buttons were styled in a basic and consistent way using flex-box
 * The main game screen was also simple, using flex-box to have the timer, game scores and end button logically spaced.
 * On the field some images were used including:
-- The football players with no-background images sourced from the internet.
-- a generic football field and goal.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* The football players with no-background images sourced from the internet.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* a generic football field and goal.
 
 ## **JavaScript**
 **The JavaScript is sectioned out as follows:
