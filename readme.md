@@ -61,7 +61,7 @@ The end products were fairly similar to the originally envisioned design, althou
 ## **Technologies used**
 
 ## **HTML**
-* 2 main screens were designed - an overlay and a main game screen.
+    * 2 main screens were designed - an overlay and a main game screen.
 * The overlay allows the player to pick a level (amateur, professional or world-class) and then start the game.
 * Upon clicking the start button, the player is moved onto the game screen, where English players are set up in a football style 1-4-3-3 system within a field of 108 grids.
 
