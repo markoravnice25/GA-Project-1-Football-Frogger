@@ -69,10 +69,8 @@ The end products were fairly similar to the originally envisioned design, althou
 * CSS was used at a fairly basic level, the overlay screen had a few boxed images and the buttons were styled in a basic and consistent way using flex-box
 * The main game screen was also simple, using flex-box to have the timer, game scores and end button logically spaced.
 * On the field some images were used including:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The football players with no-background images sourced from the internet.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a generic football field and goal.
+1) The football players with no-background images sourced from the internet.
+2) a generic football field and goal.
 
 ## **JavaScript**
 **The JavaScript is sectioned out as follows:
