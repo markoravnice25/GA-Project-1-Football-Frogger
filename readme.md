@@ -15,7 +15,7 @@ Table of Contents:
  
 ## **Project Overview**
 
-This is my first project after 2 weeks of the General Assembly software enginnering immersive program (which goes for 13 weeks total).
+This is my first project after 2 weeks of the General Assembly software enginnering immersive program (which lasts for 13 weeks in total). I had 6 days to submit the final product.
 
 World Cup Croatia vs England is a grid-based game modelled on the 1981 arcade action game Frogger. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6, whereas England gets a goal if they intercept Kovacic before he scores. If Kovacic moves out of play or the player uses a key other than an arrow key, the ball is considered out of play and Kovacic is returned to his starting position (grid 101).
 
@@ -70,15 +70,15 @@ The end products were fairly similar to the originally envisioned design, althou
 * The main game screen was also simple, using flex-box to have the timer, game scores and end button logically spaced.
 * On the field some images were used including:
 1) The football players with no-background images sourced from the internet.
-2) a generic football field and goal.
+2) A generic football field and goal.
 
 ## **JavaScript**
-**The JavaScript is sectioned out as follows:
+The JavaScript is sectioned out as follows:
 
 1) Global variables created: including an array of English players; time variables for setInterval() method; localStorage for high scores.
 
 2) Initaial Creation of grid functions:
-- functions for adding and removing all characters to and from their current grid position.
+- Functions for adding and removing all characters to and from their current grid position.
 - createGrid() function for creating the starting grid
 - levelChosen() function for setting the movement speed of Englishplayers according to level chosen. 
 
@@ -107,26 +107,26 @@ The for loop separates the rows of English footballers into three categories:
 
 ## **Key learnings**
 * How to use Flex-box
-* using Div's as containers for easier CSS
-* localStorage to set high score
-* setInterval() method
-* setItem() and getItem() to create high score in localStorage.
-* creating screen overlay
+* Using Div's as containers for easier CSS
+* LocalStorage to set high score
+* SetInterval() method
+* SetItem() and getItem() to create high score in localStorage.
+* Creating screen overlay
 
 ## **Challenges**
 * CSS - how to have images taken from the internet aligned when they have different properties.
 * The timer - when something is in the same div container it makes micro-movements as the timer's digits change. To solve this, I moved the timer into it's own block.
 
 ## **Bugs**
-* no obvious bugs
+* No obvious bugs
 
 ## **Future improvements**
 * BETTER USE OF CSS and STYLING in General - definitely needed to improve the styling.
 * Add audio and new dynamic screens for key events - goals scored and game finished. 
-* more regualar git add/commit/push to git hub with clear comments.
-* have all English players with their own character/player.
+* More regualar git add/commit/push to git hub with clear comments.
+* Have all English players with their own character/player.
 * Allow for 2 player game - Where the second option is for an English player to attack the Croatian defence.
-* function to pick which footballer you want to dribble with.
-* time-limit for player dribbling to make it more difficult and prevent dribbling around the sides (which is easier).
-* change window alerts to a div with better styling.
+* Function to pick which footballer you want to dribble with.
+* Time-limit for player dribbling to make it more difficult and prevent dribbling around the sides (which is easier).
+* Change window alerts to a div with better styling.
 
