@@ -12,7 +12,7 @@ Table of Contents:
 * Bugs
 * Future improvements
 * Key Learnings
-
+ 
 ## **Project Overview**
 
 This is my first project after 2 weeks of the General Assembly software enginnering immersive program (which goes for 13 weeks total).
@@ -97,6 +97,9 @@ The end products were fairly similar to the originally envisioned design, althou
 ## **Featured Code**
 
 The main role of the startGame() function is to remove footballers from their current grid and simultaneously add them to another grid giving the appearance of moving footballers. The for loop separates the rows of English footballers into three categories - depending if there is 1 footballer, 3 footballers or 4 footballers in a row. The modulus function is used to find the current position on the grid of the footballer and then the addEnglishPlayer() function is called to add the footballer to either the relative left or right grid to the defender's position.
+
+<img width="1210" alt="Screen Shot 2022-06-29 at 10 33 22 am" src="https://user-images.githubusercontent.com/101732786/176390949-99aaa69d-4442-4786-a4f4-09caa37d6012.png">
+
 
     function startGame() {
     document.addEventListener('keydown', executeKeyDown) // called in startGame() function so that Kovacic can only move once game has started, not before
