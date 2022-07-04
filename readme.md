@@ -5,16 +5,16 @@
 ## Table of Contents:
 
 * [Code Installation](#code-installation)
-* Project Overview
-* Game Brief
-* Planning
-* Technologies Used
-* Screeshot Walkthrough
-* Featured Code
-* Key Learnings
-* Challenges
-* Bugs
-* Future improvements
+* [Project Overview](#project-overview)
+* [Game Brief](#game-brief)
+* [Planning](#planning)
+* [Technologies Used](#technologies-used)
+* [Screeshot Walkthrough](#screenshot-walkthrough)
+* [Featured Code](#featured-code)
+* [Key Learnings](#key-learnings)
+* [Challenges](#challenges)
+* [Bugs](#bugs)
+* [Future improvements](#future-improvements)
 * [Website Link](https://markoravnice25.github.io/GA-Project-1-Football-Frogger/)
 
 <img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
