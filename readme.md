@@ -9,6 +9,7 @@
 * Game Brief
 * Planning
 * Technologies Used
+* Screeshot Walkthrough
 * Featured Code
 * Key Learnings
 * Challenges
@@ -28,12 +29,6 @@ This is my first project after 2 weeks of the General Assembly software enginner
 World Cup Croatia vs England is a grid-based game modelled on the 1981 arcade action game Frogger. The objective is to use Croatian and Chelsea player Mateo Kovacic using the arrow keys to score in England's goal, which is situated in grid positions 5 and 6, whereas England gets a goal if they intercept Kovacic before he scores. If Kovacic moves out of play or the player uses a key other than an arrow key, the ball is considered out of play and Kovacic is returned to his starting position (grid 101).
 
 There are three levels to the game with English defenders moving faster at each higher level; and there is a timer of 54 seconds which can be varied according to player taste.
-
-Screen overlay:
-<img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
-
-Main game screen:
-<img width="1272" alt="main-screen" src="https://user-images.githubusercontent.com/101732786/167477765-733711a2-68e3-4638-b6ac-e96303b3ffd0.png">
 
 <br/>
 
@@ -66,19 +61,19 @@ The end products were fairly similar to the originally envisioned design, althou
 
 ## **Technologies used**
 
-## **HTML**
+### **HTML**
 * 2 main screens were designed - an overlay and a main game screen.
 * The overlay allows the player to pick a level (amateur, professional or world-class) and then start the game.
 * Upon clicking the start button, the player is moved onto the game screen, where English players are set up in a football style 1-4-3-3 system within a field of 108 grids.
 
-## **CSS**
+### **CSS**
 * CSS was used at a fairly basic level, the overlay screen had a few boxed images and the buttons were styled in a basic and consistent way using flex-box
 * The main game screen was also simple, using flex-box to have the timer, game scores and end button logically spaced.
 * On the field some images were used including:
 1) The football players with no-background images sourced from the internet.
 2) A generic football field and goal.
 
-## **JavaScript**
+### **JavaScript**
 The JavaScript is sectioned out as follows:
 
 1) Global variables created: including an array of English players; time variables for setInterval() method; localStorage for high scores.
@@ -99,6 +94,14 @@ The JavaScript is sectioned out as follows:
 4) cancelArrowKeys() function to prevent screen from moving up and down when using arrow keys - although this is not needed as in the CSS we have fixed the screen to window size.
 
 5) Events section where we call the createGrid() function and use addEventListener() to call the button functions.
+
+## Screenshot Walkthrough
+
+Screen overlay:
+<img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
+
+Main game screen:
+<img width="1272" alt="main-screen" src="https://user-images.githubusercontent.com/101732786/167477765-733711a2-68e3-4638-b6ac-e96303b3ffd0.png">
 
 ## **Featured Code**
 
