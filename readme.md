@@ -4,6 +4,7 @@
 
 ## Table of Contents:
 
+* Code Installation 
 * Project Overview
 * Game Brief
 * Planning
@@ -13,7 +14,9 @@
 * Challenges
 * Bugs
 * Future improvements
-* [Visit the website!](https://markoravnice25.github.io/GA-Project-1-Football-Frogger/)
+* [Website Link](https://markoravnice25.github.io/GA-Project-1-Football-Frogger/)
+
+<img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
 
 ## Code installation
 * To run your local server, use 'yarn start'.
