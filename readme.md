@@ -1,6 +1,6 @@
 ## General Assembly Software Engineering Immersive (March - July 2022)
 
-# Project 1: World Cup Croatia vs England
+# Project 1: [World Cup Croatia vs England](https://markoravnice25.github.io/GA-Project-1-Football-Frogger/)
 
 ## Table of Contents:
 
