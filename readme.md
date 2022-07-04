@@ -57,7 +57,6 @@ Followed by a wireframe for the functionality of the main game screen - the orig
 I also logged my progress whilst ading JavaScript each day to solidify my understanding of what I was implementing and learning along the way.
 
 <img width="1286" alt="JavaScript-log-1" src="https://user-images.githubusercontent.com/101732786/177182507-afaf8029-b95e-4f1a-b3e7-4e0074190d5c.png">
-
 <img width="1312" alt="JavaScript-log-2" src="https://user-images.githubusercontent.com/101732786/177182552-764a9645-05b6-4812-8782-d529fc9913e9.png">
 
 
