@@ -13,7 +13,9 @@ Table of Contents:
 * Challenges
 * Bugs
 * Future improvements
-* [Visit the website!](https://markoravnice25.github.io/GAProject-1-Football-Frogger/)
+* [Visit the website!](https://markoravnice25.github.io/GA-Project-1-Football-Frogger/)
+
+* To run your local server, use 'yarn start'.
  
 ## **Project Overview**
 
@@ -129,8 +131,3 @@ The for loop separates the rows of English footballers into three categories:
 * Function to pick which footballer you want to dribble with.
 * Time-limit for player dribbling to make it more difficult and prevent dribbling around the sides (which is easier).
 * Change window alerts to a div with better styling.
-
-## Visit the website:
-
-* To visit the page, click the link: [Football-Frogger](https://markoravnice25.github.io/GAProject-1-Football-Frogger/)
-* To run your local server, use 'yarn start'.
