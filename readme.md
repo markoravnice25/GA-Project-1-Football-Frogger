@@ -2,7 +2,7 @@
 
 # Project 1: World Cup Croatia vs England
 
-Table of Contents:
+## Table of Contents:
 
 * Project Overview
 * Game Brief
@@ -15,6 +15,7 @@ Table of Contents:
 * Future improvements
 * [Visit the website!](https://markoravnice25.github.io/GA-Project-1-Football-Frogger/)
 
+## Code installation
 * To run your local server, use 'yarn start'.
  
 ## **Project Overview**
