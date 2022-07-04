@@ -54,6 +54,12 @@ Followed by a wireframe for the functionality of the main game screen - the orig
 
 ![wireframe-draft-1 Marko-Project-1-png](https://user-images.githubusercontent.com/101732786/167477568-5c9755b7-ec4b-4873-b8c3-ba5ac58812f7.png)
 
+I also logged my progress whilst ading JavaScript each day to solidify my understanding of what I was implementing and learning along the way.
+
+<img width="1286" alt="JavaScript-log-1" src="https://user-images.githubusercontent.com/101732786/177182507-afaf8029-b95e-4f1a-b3e7-4e0074190d5c.png">
+
+<img width="1312" alt="JavaScript-log-2" src="https://user-images.githubusercontent.com/101732786/177182552-764a9645-05b6-4812-8782-d529fc9913e9.png">
+
 
 The end products were fairly similar to the originally envisioned design, although an obvious difference was the user only controlling one player as opposed to 11 players as originally envisioned.
 
