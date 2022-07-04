@@ -4,7 +4,7 @@
 
 ## Table of Contents:
 
-* [Code Installation](https://github.com/markoravnice25/GA-Project-1-Football-Frogger#code-installation)
+* [Code Installation](#code-installation)
 * Project Overview
 * Game Brief
 * Planning
