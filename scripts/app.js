@@ -504,10 +504,9 @@ document.addEventListener('DOMContentLoaded', init)
 // * high score board for each of the three levels
 // * Write a readme.md describing my game - what is a readme.md?
 // * comment CSS and HTML - organise code and understand it.
-
+// * do readme
 
 // Weekend tasks:
-// do readme
 // outcomes assignment
 
 // ? Additional TASKS:
