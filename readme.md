@@ -118,7 +118,7 @@ The for loop separates the rows of English footballers into three categories:
 
 <img width="1210" alt="Screen Shot 2022-06-29 at 10 33 22 am" src="https://user-images.githubusercontent.com/101732786/176390949-99aaa69d-4442-4786-a4f4-09caa37d6012.png">
 
-## **Key learnings/Wins**
+## **Key learnings**
 * How to use Flex-box
 * Using Div's as containers for easier CSS
 * LocalStorage to set high score
