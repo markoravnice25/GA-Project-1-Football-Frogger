@@ -126,6 +126,11 @@ The for loop separates the rows of English footballers into three categories:
 * SetItem() and getItem() to create high score in localStorage.
 * Creating screen overlay
 
+## **Wins**
+* Defenders moving around randomly within their zone (as opposed to straight across the screen in the original frogger game)
+* High Score stored in local storage
+* Game fully functioning
+
 ## **Challenges**
 * CSS - how to have images taken from the internet aligned when they have different properties.
 * The timer - when something is in the same div container it makes micro-movements as the timer's digits change. To solve this, I moved the timer into it's own block.
