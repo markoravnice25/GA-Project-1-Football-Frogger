@@ -9,7 +9,7 @@
 * [Game Brief](#game-brief)
 * [Planning](#planning)
 * [Technologies Used](#technologies-used)
-* [Screeshot Walkthrough](#screenshot-walkthrough)
+* [Screenshot Walkthrough](#screenshot-walkthrough)
 * [Featured Code](#featured-code)
 * [Key Learnings](#key-learnings)
 * [Challenges](#challenges)
@@ -120,7 +120,7 @@ The for loop separates the rows of English footballers into three categories:
 
 ## **Key learnings**
 * How to use Flex-box
-* Using Div's as containers for easier CSS
+* Using <div>'s as containers for easier CSS
 * LocalStorage to set high score
 * SetInterval() method
 * SetItem() and getItem() to create high score in localStorage.
@@ -139,7 +139,7 @@ The for loop separates the rows of English footballers into three categories:
 * No obvious bugs
 
 ## **Future improvements**
-* BETTER USE OF CSS and STYLING in General - definitely needed to improve the styling.
+* BETTER USE OF CSS and STYLING in general - definitely needed to improve the styling.
 * Add audio and new dynamic screens for key events - goals scored and game finished. 
 * More regular git add/commit/push to GitHub with clear comments.
 * Have all English players with their own character/player.
