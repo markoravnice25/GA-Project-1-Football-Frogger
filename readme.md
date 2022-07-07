@@ -16,7 +16,6 @@
 * [Bugs](#bugs)
 * [Future improvements](#future-improvements)
 * [Website Link](https://markoravnice25.github.io/GA-Project-1-Football-Frogger/)
-test...
 
 <img width="1296" alt="overlay-screen" src="https://user-images.githubusercontent.com/101732786/167477643-8ccf6739-cff0-4ed8-9850-7bc224505a8f.png">
 
